@@ -1,0 +1,40 @@
+name: Postar novos produtos no Telegram
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "products.json"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  postar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências
+        run: pip install requests pillow
+
+      - name: Rodar o bot
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/post_to_telegram.py
+
+      - name: Salvar quais produtos já foram postados
+        run: |
+          git config user.name "pz-ofertas-bot"
+          git config user.email "bot@pzofertas.local"
+          git add posted_ids.json
+          git diff --staged --quiet || git commit -m "bot: atualiza produtos já postados no Telegram"
+          git push
