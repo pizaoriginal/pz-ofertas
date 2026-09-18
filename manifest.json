@@ -1,0 +1,43 @@
+{
+  "name": "PZ Ofertas",
+  "short_name": "PZ Ofertas",
+  "description": "Achadinhos, cupons e ofertas selecionadas em moda, quarto, tech & games e livros.",
+  "start_url": "/?fonte=app",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B0B0A",
+  "theme_color": "#0B0B0A",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Ver achados", "url": "/#achados" },
+    { "name": "Pedir um achado", "url": "/#pedir" },
+    { "name": "Entrar no grupo", "url": "/#grupo" }
+  ]
+}
