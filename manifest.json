@@ -37,7 +37,8 @@
   ],
   "shortcuts": [
     { "name": "Ver achados", "url": "/#achados" },
-    { "name": "Pedir um achado", "url": "/#pedir" },
+    { "name": "Salvos", "url": "/#salvos" },
+    { "name": "Jogar offline", "url": "/game.html" },
     { "name": "Entrar no grupo", "url": "/#grupo" }
   ]
 }

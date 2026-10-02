@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#080808">
+<meta name="robots" content="noindex">
+
+<title>404 — PZ Ofertas</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600;700;800&display=swap');
+
+:root{
+  --black:#080808;
+  --white:#f4f3ef;
+  --gray:#96958f;
+  --line:#242424;
+  --accent:#d9ff3f;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  background:var(--black);
+  color:var(--white);
+  font-family:"DM Mono",monospace;
+  overflow-x:hidden;
+}
+
+/* -------------------------
+   NOISE
+------------------------- */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.035;
+  z-index:100;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* -------------------------
+   HEADER
+------------------------- */
+
+header{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  padding:max(28px, env(safe-area-inset-top)) 5vw 28px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  z-index:10;
+}
+
+.logo{
+  color:var(--white);
+  text-decoration:none;
+  font-family:"Playfair Display",serif;
+  font-weight:800;
+  font-size:27px;
+  letter-spacing:-.06em;
+}
+
+.logo span{
+  font-family:"DM Mono",monospace;
+  font-size:9px;
+  letter-spacing:.14em;
+  color:var(--gray);
+  margin-left:7px;
+}
+
+.back{
+  color:var(--white);
+  text-decoration:none;
+  font-size:9px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--white);
+  padding-bottom:4px;
+}
+
+/* -------------------------
+   HERO
+------------------------- */
+
+main{
+  min-height:100vh;
+  max-width:1450px;
+  margin:auto;
+
+  padding:125px 5vw 70px;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7vw;
+  align-items:center;
+}
+
+.eyebrow{
+  color:var(--gray);
+  font-size:9px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  margin-bottom:22px;
+}
+
+.eyebrow::before{
+  content:"";
+  width:34px;
+  height:1px;
+  background:var(--gray);
+}
+
+.mascote-triste{
+  display:block;
+  width:clamp(64px,8vw,110px);
+  height:auto;
+  margin-bottom:16px;
+}
+
+h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(90px,13vw,190px);
+  line-height:.72;
+  letter-spacing:-.08em;
+}
+
+.title{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(35px,4vw,60px);
+  line-height:.95;
+  letter-spacing:-.045em;
+  max-width:600px;
+
+  margin-top:38px;
+}
+
+.description{
+  max-width:470px;
+  margin-top:25px;
+
+  color:var(--gray);
+  font-size:10px;
+  line-height:1.9;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:32px;
+  flex-wrap:wrap;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  min-height:45px;
+  padding:0 20px;
+
+  border:1px solid var(--white);
+
+  color:var(--white);
+  text-decoration:none;
+
+  font-size:9px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+
+  transition:.2s;
+}
+
+.button:hover{
+  background:var(--white);
+  color:var(--black);
+}
+
+.button.secondary{
+  border-color:var(--line);
+  color:var(--gray);
+}
+
+.button.secondary:hover{
+  border-color:var(--white);
+  color:var(--black);
+}
+
+/* -------------------------
+   GAME
+------------------------- */
+
+.game-wrap{
+  position:relative;
+  width:100%;
+}
+
+.game-label{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+
+  margin-bottom:12px;
+}
+
+.game-label h2{
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  font-weight:600;
+}
+
+.game-label span{
+  color:var(--gray);
+  font-size:8px;
+  letter-spacing:.1em;
+}
+
+.game{
+  position:relative;
+
+  width:100%;
+  aspect-ratio:1.25;
+
+  min-height:350px;
+
+  border:1px solid var(--line);
+
+  overflow:hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #171717 0%,
+      #0b0b0b 55%,
+      #070707 100%
+    );
+}
+
+/* grid */
+
+.game::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background-image:
+    linear-gradient(#ffffff05 1px,transparent 1px),
+    linear-gradient(90deg,#ffffff05 1px,transparent 1px);
+
+  background-size:35px 35px;
+
+  pointer-events:none;
+}
+
+/* -------------------------
+   GAME UI
+------------------------- */
+
+.game-ui{
+  position:absolute;
+  top:15px;
+  left:15px;
+  right:15px;
+
+  display:flex;
+  justify-content:space-between;
+
+  z-index:20;
+
+  pointer-events:none;
+}
+
+.ui-item{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+
+.ui-item small{
+  color:#666;
+  font-size:7px;
+  letter-spacing:.15em;
+}
+
+.ui-item strong{
+  font-size:13px;
+  font-weight:400;
+}
+
+/* -------------------------
+   START
+------------------------- */
+
+.start-screen,
+.end-screen{
+  position:absolute;
+  inset:0;
+
+  z-index:50;
+
+  display:flex;
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  background:rgba(8,8,8,.82);
+  backdrop-filter:blur(8px);
+
+  padding:25px;
+}
+
+.start-screen h3,
+.end-screen h3{
+  font-family:"Playfair Display",serif;
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.start-screen p,
+.end-screen p{
+  max-width:330px;
+
+  color:var(--gray);
+  font-size:9px;
+  line-height:1.8;
+
+  margin-bottom:22px;
+}
+
+.play{
+  border:1px solid var(--white);
+  background:var(--white);
+  color:var(--black);
+
+  padding:13px 22px;
+
+  cursor:pointer;
+
+  font-family:"DM Mono",monospace;
+  font-size:8px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+
+  transition:.2s;
+}
+
+.play:hover{
+  transform:translateY(-2px);
+}
+
+/* -------------------------
+   WORLD
+------------------------- */
+
+.world{
+  position:absolute;
+  inset:0;
+}
+
+/* -------------------------
+   PANDA
+------------------------- */
+
+.player{
+  position:absolute;
+
+  width:56px;
+  height:72px;
+
+  z-index:10;
+
+  transition:
+    left .08s linear,
+    top .08s linear;
+
+  transform-origin:center bottom;
+}
+
+.panda-head{
+  position:absolute;
+
+  width:44px;
+  height:39px;
+
+  left:6px;
+  top:5px;
+
+  background:#f4f3ef;
+
+  border-radius:48%;
+
+  border:2px solid #080808;
+}
+
+.panda-head::before,
+.panda-head::after{
+  content:"";
+
+  position:absolute;
+
+  width:14px;
+  height:14px;
+
+  background:#080808;
+
+  border-radius:50%;
+
+  top:-5px;
+}
+
+.panda-head::before{
+  left:1px;
+}
+
+.panda-head::after{
+  right:1px;
+}
+
+.eye{
+  position:absolute;
+
+  width:12px;
+  height:17px;
+
+  background:#080808;
+
+  border-radius:50%;
+
+  top:10px;
+}
+
+.eye.one{
+  left:7px;
+  transform:rotate(30deg);
+}
+
+.eye.two{
+  right:7px;
+  transform:rotate(-30deg);
+}
+
+.eye::after{
+  content:"";
+
+  position:absolute;
+
+  width:3px;
+  height:3px;
+
+  background:#fff;
+
+  border-radius:50%;
+
+  top:4px;
+  left:3px;
+}
+
+.nose{
+  position:absolute;
+
+  width:7px;
+  height:5px;
+
+  background:#080808;
+
+  border-radius:50%;
+
+  left:50%;
+  top:24px;
+
+  transform:translateX(-50%);
+}
+
+.body{
+  position:absolute;
+
+  width:43px;
+  height:34px;
+
+  left:7px;
+  top:38px;
+
+  background:#080808;
+
+  border-radius:12px 12px 7px 7px;
+}
+
+.body::before{
+  content:"";
+
+  position:absolute;
+
+  width:2px;
+  height:28px;
+
+  background:#333;
+
+  left:50%;
+}
+
+/* -------------------------
+   COLLECTABLE
+------------------------- */
+
+.coin{
+  position:absolute;
+
+  width:24px;
+  height:24px;
+
+  border:1px solid var(--accent);
+
+  border-radius:50%;
+
+  z-index:5;
+
+  animation:
+    coinFloat 1s ease-in-out infinite alternate,
+    coinSpin 2s linear infinite;
+
+  box-shadow:
+    0 0 15px rgba(217,255,63,.12);
+}
+
+.coin::before{
+  content:"$";
+
+  position:absolute;
+
+  inset:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:var(--accent);
+
+  font-family:"Playfair Display",serif;
+  font-size:13px;
+}
+
+@keyframes coinFloat{
+  from{
+    transform:translateY(-3px);
+  }
+
+  to{
+    transform:translateY(3px);
+  }
+}
+
+@keyframes coinSpin{
+  0%,100%{
+    scale:1;
+  }
+
+  50%{
+    scale:.85;
+  }
+}
+
+/* -------------------------
+   BOXES / OBSTACLES
+------------------------- */
+
+.obstacle{
+  position:absolute;
+
+  width:42px;
+  height:42px;
+
+  border:1px solid #303030;
+
+  background:#101010;
+
+  z-index:3;
+}
+
+.obstacle::after{
+  content:"";
+
+  position:absolute;
+
+  width:16px;
+  height:16px;
+
+  border:1px solid #292929;
+
+  left:12px;
+  top:12px;
+
+  transform:rotate(45deg);
+}
+
+/* -------------------------
+   RESULT
+------------------------- */
+
+.result-score{
+  font-family:"Playfair Display",serif;
+  font-size:50px;
+
+  margin:5px 0 15px;
+}
+
+.result-message{
+  color:var(--gray);
+  font-size:9px;
+  line-height:1.8;
+
+  max-width:310px;
+
+  margin-bottom:22px;
+}
+
+.result-actions{
+  display:flex;
+  gap:8px;
+}
+
+/* -------------------------
+   MOBILE CONTROLS
+------------------------- */
+
+.controls{
+  display:none;
+
+  grid-template-columns:repeat(3,45px);
+  grid-template-rows:repeat(2,45px);
+
+  justify-content:center;
+
+  gap:5px;
+
+  margin-top:10px;
+}
+
+.controls button{
+  border:1px solid var(--line);
+  background:#101010;
+  color:var(--white);
+
+  cursor:pointer;
+
+  font-size:13px;
+}
+
+.controls button:nth-child(1){
+  grid-column:2;
+}
+
+.controls button:nth-child(2){
+  grid-column:1;
+  grid-row:2;
+}
+
+.controls button:nth-child(3){
+  grid-column:2;
+  grid-row:2;
+}
+
+.controls button:nth-child(4){
+  grid-column:3;
+  grid-row:2;
+}
+
+/* -------------------------
+   FOOTER
+------------------------- */
+
+footer{
+  padding:0 5vw max(35px, env(safe-area-inset-bottom));
+
+  text-align:center;
+
+  color:#4d4d4d;
+
+  font-size:8px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+/* -------------------------
+   MOBILE
+------------------------- */
+
+@media(max-width:850px){
+
+  main{
+    display:flex;
+    flex-direction:column;
+
+    padding-top:110px;
+
+    gap:45px;
+  }
+
+  .game-wrap{
+    width:100%;
+  }
+
+  .game{
+    min-height:340px;
+  }
+
+  .controls{
+    display:grid;
+  }
+
+}
+
+@media(max-width:500px){
+
+  header{
+    padding:max(22px, env(safe-area-inset-top)) 6vw 22px;
+  }
+
+  .back{
+    display:none;
+  }
+
+  main{
+    padding-left:6vw;
+    padding-right:6vw;
+  }
+
+  h1{
+    font-size:95px;
+  }
+
+  .title{
+    font-size:37px;
+  }
+
+  .description{
+    font-size:9px;
+  }
+
+  .game{
+    min-height:320px;
+  }
+}
+
+/* telas bem estreitas — iPhone SE, Android compacto */
+@media(max-width:360px){
+
+  h1{
+    font-size:72px;
+  }
+
+  .title{
+    font-size:30px;
+  }
+
+  .mascote-triste{
+    width:56px;
+  }
+
+  .actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .actions .button{
+    width:100%;
+  }
+
+  .game{
+    min-height:290px;
+  }
+
+  .controls{
+    grid-template-columns:repeat(3,40px);
+    grid-template-rows:repeat(2,40px);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <a href="/" class="logo">
+    PZ <span>OFERTAS</span>
+  </a>
+
+  <a href="/" class="back">
+    voltar para a vitrine ↗
+  </a>
+
+</header>
+
+
+<main>
+
+  <!-- TEXT -->
+
+  <section>
+
+    <div class="eyebrow">
+      erro / 404
+    </div>
+
+    <!--
+      MASCOTE TRISTE: quando tiver a imagem, suba o arquivo
+      "mascote-triste.png" na raiz do repositório (mesmo lugar do
+      index.html) com esse nome exato. Ela aparece aqui sozinha,
+      sem precisar mexer em mais nada. Enquanto o arquivo não existir,
+      essa tag fica escondida (o onerror cuida disso).
+    -->
+    <img
+      src="mascote-triste.png"
+      alt="Panda triste"
+      class="mascote-triste"
+      onerror="this.style.display='none'"
+    >
+
+    <h1>404</h1>
+
+    <h2 class="title">
+      O achado que você procura sumiu.
+    </h2>
+
+    <p class="description">
+      Essa página não está mais por aqui.
+      Mas o Panda encontrou uma pista:
+      aparentemente existe um achado perdido escondido por perto.
+    </p>
+
+    <div class="actions">
+
+      <a href="/" class="button">
+        voltar para a vitrine
+      </a>
+
+      <a href="#game" class="button secondary">
+        ajudar o panda ↓
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- GAME -->
+
+  <section class="game-wrap" id="game">
+
+    <div class="game-label">
+
+      <h2>
+        Ajude o Panda a encontrar o achado perdido.
+      </h2>
+
+      <span>
+        EASTER EGG / 01
+      </span>
+
+    </div>
+
+
+    <div class="game">
+
+      <!-- UI -->
+
+      <div class="game-ui">
+
+        <div class="ui-item">
+          <small>TEMPO</small>
+          <strong id="timer">15</strong>
+        </div>
+
+        <div class="ui-item">
+          <small>ACHADOS</small>
+          <strong id="score">0</strong>
+        </div>
+
+      </div>
+
+
+      <!-- WORLD -->
+
+      <div class="world" id="world">
+
+        <div class="player" id="player">
+
+          <div class="panda-head">
+
+            <div class="eye one"></div>
+            <div class="eye two"></div>
+
+            <div class="nose"></div>
+
+          </div>
+
+          <div class="body"></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- START -->
+
+      <div class="start-screen" id="startScreen">
+
+        <h3>
+          Panda Garimpeiro.
+        </h3>
+
+        <p>
+          Encontre os achados escondidos antes
+          que o tempo acabe. São só 15 segundos.
+        </p>
+
+        <button class="play" id="start">
+          começar a caça
+        </button>
+
+      </div>
+
+
+      <!-- END -->
+
+      <div class="end-screen" id="endScreen" style="display:none">
+
+        <h3>
+          Achado encontrado.
+        </h3>
+
+        <div class="result-score" id="finalScore">
+          0
+        </div>
+
+        <p class="result-message" id="resultMessage">
+          ...
+        </p>
+
+        <div class="result-actions">
+
+          <button class="play" id="again">
+            tentar de novo
+          </button>
+
+          <a href="/" class="button">
+            ver ofertas
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- MOBILE -->
+
+    <div class="controls">
+
+      <button data-key="ArrowUp">↑</button>
+      <button data-key="ArrowLeft">←</button>
+      <button data-key="ArrowDown">↓</button>
+      <button data-key="ArrowRight">→</button>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  PZ OFERTAS — achados que valem a pena.
+</footer>
+
+
+<script>
+
+/*
+==================================================
+  PANDA GARIMPEIRO
+==================================================
+*/
+
+const world = document.getElementById("world");
+const player = document.getElementById("player");
+
+const startScreen = document.getElementById("startScreen");
+const endScreen = document.getElementById("endScreen");
+
+const startButton = document.getElementById("start");
+const againButton = document.getElementById("again");
+
+const timerElement = document.getElementById("timer");
+const scoreElement = document.getElementById("score");
+
+const finalScore = document.getElementById("finalScore");
+const resultMessage = document.getElementById("resultMessage");
+
+let gameRunning = false;
+
+let score = 0;
+let time = 15;
+
+let timer;
+
+let playerX = 50;
+let playerY = 50;
+
+let coins = [];
+let obstacles = [];
+
+const SPEED = 3;
+
+
+/*
+==================================================
+  START
+==================================================
+*/
+
+function startGame(){
+
+  gameRunning = true;
+
+  score = 0;
+  time = 15;
+
+  playerX = 50;
+  playerY = 50;
+
+  scoreElement.textContent = score;
+  timerElement.textContent = time;
+
+  startScreen.style.display = "none";
+  endScreen.style.display = "none";
+
+  clearWorld();
+
+  createObstacles();
+  createCoins();
+
+  updatePlayer();
+
+  clearInterval(timer);
+
+  timer = setInterval(() => {
+
+    time--;
+
+    timerElement.textContent = time;
+
+    if(time <= 0){
+
+      endGame();
+
+    }
+
+  },1000);
+
+}
+
+
+/*
+==================================================
+  END
+==================================================
+*/
+
+function endGame(){
+
+  gameRunning = false;
+
+  clearInterval(timer);
+
+  finalScore.textContent = score;
+
+  let message;
+
+  if(score === 0){
+
+    message =
+      "O Panda voltou de mãos vazias. Talvez seja melhor procurar os achados na vitrine.";
+
+  }else if(score < 3){
+
+    message =
+      "O Panda encontrou alguns achados. Nada mal para uma caça de 15 segundos.";
+
+  }else if(score < 6){
+
+    message =
+      "Boa. O Panda já está oficialmente garimpando melhor que muita gente.";
+
+  }else{
+
+    message =
+      "Você praticamente limpou a loja. O Panda aprovou seu instinto de garimpeiro.";
+
+  }
+
+  resultMessage.textContent = message;
+
+  endScreen.style.display = "flex";
+
+}
+
+
+/*
+==================================================
+  CLEAR
+==================================================
+*/
+
+function clearWorld(){
+
+  document
+    .querySelectorAll(".coin,.obstacle")
+    .forEach(element => element.remove());
+
+  coins = [];
+  obstacles = [];
+
+}
+
+
+/*
+==================================================
+  COINS
+==================================================
+*/
+
+function createCoins(){
+
+  const amount = 7;
+
+  for(let i=0;i<amount;i++){
+
+    const coin = document.createElement("div");
+
+    coin.className = "coin";
+
+    const position = randomPosition();
+
+    coin.style.left = position.x + "%";
+    coin.style.top = position.y + "%";
+
+    world.appendChild(coin);
+
+    coins.push({
+      element:coin,
+      x:position.x,
+      y:position.y
+    });
+
+  }
+
+}
+
+
+/*
+==================================================
+  OBSTACLES
+==================================================
+*/
+
+function createObstacles(){
+
+  const amount = 5;
+
+  for(let i=0;i<amount;i++){
+
+    const obstacle = document.createElement("div");
+
+    obstacle.className = "obstacle";
+
+    const position = randomPosition();
+
+    obstacle.style.left = position.x + "%";
+    obstacle.style.top = position.y + "%";
+
+    world.appendChild(obstacle);
+
+    obstacles.push({
+      element:obstacle,
+      x:position.x,
+      y:position.y
+    });
+
+  }
+
+}
+
+
+/*
+==================================================
+  RANDOM POSITION
+==================================================
+*/
+
+function randomPosition(){
+
+  return {
+
+    x:10 + Math.random() * 78,
+
+    y:20 + Math.random() * 65
+
+  };
+
+}
+
+
+/*
+==================================================
+  PLAYER
+==================================================
+*/
+
+function updatePlayer(){
+
+  player.style.left = playerX + "%";
+  player.style.top = playerY + "%";
+
+}
+
+
+/*
+==================================================
+  MOVEMENT
+==================================================
+*/
+
+function move(key){
+
+  if(!gameRunning) return;
+
+  let nextX = playerX;
+  let nextY = playerY;
+
+  if(key === "ArrowUp") nextY -= SPEED;
+  if(key === "ArrowDown") nextY += SPEED;
+  if(key === "ArrowLeft") nextX -= SPEED;
+  if(key === "ArrowRight") nextX += SPEED;
+
+  /*
+    boundaries
+  */
+
+  nextX = Math.max(3,Math.min(92,nextX));
+  nextY = Math.max(10,Math.min(82,nextY));
+
+  /*
+    obstacle collision
+  */
+
+  if(collidesWithObstacle(nextX,nextY)){
+
+    return;
+
+  }
+
+  playerX = nextX;
+  playerY = nextY;
+
+  updatePlayer();
+
+  checkCoins();
+
+}
+
+
+/*
+==================================================
+  OBSTACLE COLLISION
+==================================================
+*/
+
+function collidesWithObstacle(x,y){
+
+  for(const obstacle of obstacles){
+
+    const dx = x - obstacle.x;
+    const dy = y - obstacle.y;
+
+    const distance = Math.sqrt(
+      dx * dx +
+      dy * dy
+    );
+
+    if(distance < 7){
+
+      return true;
+
+    }
+
+  }
+
+  return false;
+
+}
+
+
+/*
+==================================================
+  COLLECT COINS
+==================================================
+*/
+
+function checkCoins(){
+
+  coins.forEach((coin,index) => {
+
+    if(!coin) return;
+
+    const dx = playerX - coin.x;
+    const dy = playerY - coin.y;
+
+    const distance = Math.sqrt(
+      dx * dx +
+      dy * dy
+    );
+
+    if(distance < 7){
+
+      coin.element.remove();
+
+      coins[index] = null;
+
+      score++;
+
+      scoreElement.textContent = score;
+
+      /*
+        pequeno efeito
+      */
+
+      player.style.transform = "scale(1.12)";
+
+      setTimeout(() => {
+
+        player.style.transform = "";
+
+      },100);
+
+    }
+
+  });
+
+}
+
+
+/*
+==================================================
+  KEYBOARD
+==================================================
+*/
+
+document.addEventListener("keydown",event => {
+
+  const keys = [
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight"
+  ];
+
+  if(keys.includes(event.key)){
+
+    event.preventDefault();
+
+    move(event.key);
+
+  }
+
+});
+
+
+/*
+==================================================
+  MOBILE CONTROLS
+==================================================
+*/
+
+document
+  .querySelectorAll(".controls button")
+  .forEach(button => {
+
+    button.addEventListener("touchstart",event => {
+
+      event.preventDefault();
+
+      move(button.dataset.key);
+
+    });
+
+    button.addEventListener("click",() => {
+
+      move(button.dataset.key);
+
+    });
+
+  });
+
+
+/*
+==================================================
+  BUTTONS
+==================================================
+*/
+
+startButton.addEventListener("click",startGame);
+
+againButton.addEventListener("click",startGame);
+
+
+/*
+==================================================
+  MOBILE SWIPE
+==================================================
+*/
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+world.addEventListener("touchstart",event => {
+
+  const touch = event.changedTouches[0];
+
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+
+});
+
+
+world.addEventListener("touchend",event => {
+
+  if(!gameRunning) return;
+
+  const touch = event.changedTouches[0];
+
+  const dx = touch.clientX - touchStartX;
+  const dy = touch.clientY - touchStartY;
+
+  if(Math.abs(dx) > Math.abs(dy)){
+
+    if(dx > 20) move("ArrowRight");
+    if(dx < -20) move("ArrowLeft");
+
+  }else{
+
+    if(dy > 20) move("ArrowDown");
+    if(dy < -20) move("ArrowUp");
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>

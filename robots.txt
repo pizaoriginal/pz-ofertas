@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pz-ofertas.netlify.app/sitemap.xml
+Sitemap: https://pz-ofertas.pages.dev/sitemap.xml

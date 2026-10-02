@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PZ Ofertas — A PZ acha primeiro, você só clica</title>
 <meta name="description" content="Achadinhos, cupons e ofertas selecionadas em moda, quarto, tech & games e livros. A PZ garimpa, você aproveita.">
-<link rel="canonical" href="https://pz-ofertas.netlify.app/">
+<link rel="canonical" href="https://pz-ofertas.pages.dev/">
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#0B0B0A">
 <meta name="mobile-web-app-capable" content="yes">
@@ -18,7 +17,7 @@
 <meta property="og:site_name" content="PZ Ofertas">
 <meta property="og:title" content="PZ Ofertas — A PZ acha primeiro, você só clica">
 <meta property="og:description" content="Achadinhos, cupons e ofertas selecionadas em moda, quarto, tech & games e livros.">
-<meta property="og:url" content="https://pz-ofertas.netlify.app/">
+<meta property="og:url" content="https://pz-ofertas.pages.dev/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PZ Ofertas">
 <meta name="twitter:description" content="Achadinhos, cupons e ofertas selecionadas em moda, quarto, tech & games e livros.">
@@ -136,10 +135,10 @@
   .chip-row{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;margin-bottom:30px;-ms-overflow-style:none;scrollbar-width:none;}
   .chip-row::-webkit-scrollbar{display:none;}
   .chip{
-    flex:none;padding:9px 18px;border-radius:2px;border:1.5px solid rgba(11,11,10,.2);
-    background:transparent;font-weight:600;font-size:.9rem;color:var(--black);font-family:'Source Serif 4';
+    flex:none;padding:9px 18px;border-radius:2px;border:1.5px solid rgba(246,243,236,.25);
+    background:transparent;font-weight:600;font-size:.9rem;color:var(--white);font-family:'Source Serif 4';
   }
-  .chip[aria-pressed="true"]{background:var(--black);color:#fff;border-color:var(--black);}
+  .chip[aria-pressed="true"]{background:var(--white);color:var(--black);border-color:var(--white);}
   .chip:hover{border-color:var(--fire);}
 
   /* product grid */
@@ -175,6 +174,88 @@
   .card-cta:hover{background:var(--fire);}
 
   .empty-state{grid-column:1/-1;text-align:center;padding:40px 10px;color:#a09c8c;}
+
+  /* botão de salvar no card */
+  .save-btn{
+    position:absolute;top:8px;right:8px;z-index:2;
+    width:32px;height:32px;border-radius:50%;
+    background:rgba(11,11,10,.55);border:1px solid rgba(255,255,255,.4);
+    display:flex;align-items:center;justify-content:center;color:#fff;padding:0;
+  }
+  .save-btn svg{width:15px;height:15px;}
+  .save-btn.is-saved{background:var(--fire);border-color:var(--fire);}
+  .save-btn:hover{border-color:#fff;}
+
+  /* botão ghost em fundo claro (seção Salvos) */
+  .btn-ghost-dark{background:transparent;color:var(--black);border:1.5px solid var(--black);}
+  .btn-ghost-dark:hover{background:var(--black);color:#fff;}
+
+  /* modal "salvar em uma lista" */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,.6);
+    display:flex;align-items:flex-end;justify-content:center;
+    z-index:90;opacity:0;pointer-events:none;transition:opacity .2s ease;
+  }
+  .modal-overlay.aberto{opacity:1;pointer-events:auto;}
+  .modal-sheet{
+    background:var(--white);color:var(--black);width:100%;max-width:480px;
+    border-radius:12px 12px 0 0;padding:22px 20px 26px;max-height:75vh;overflow-y:auto;
+    transform:translateY(16px);transition:transform .2s ease;
+  }
+  .modal-overlay.aberto .modal-sheet{transform:translateY(0);}
+  @media(min-width:640px){
+    .modal-overlay{align-items:center;}
+    .modal-sheet{border-radius:8px;}
+  }
+  .modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+  .modal-head h3{font-family:'Fraunces';font-size:1.2rem;}
+  .modal-close{background:none;border:none;font-size:1.3rem;line-height:1;color:var(--black);cursor:pointer;padding:4px;}
+  .modal-lista-playlists{display:flex;flex-direction:column;margin-bottom:16px;max-height:38vh;overflow-y:auto;}
+  .playlist-row{
+    display:flex;align-items:center;gap:10px;padding:11px 6px;border-bottom:1px solid rgba(11,11,10,.1);
+    cursor:pointer;font-family:'Source Serif 4';
+  }
+  .playlist-row input{width:18px;height:18px;flex:none;accent-color:var(--fire);}
+  .playlist-row-nome{flex:1;font-weight:500;}
+  .playlist-row-count{color:#8b876f;font-size:.85rem;}
+  .modal-vazio{color:#6b6857;font-size:.92rem;margin:0 0 14px;}
+  .modal-nova-lista{display:flex;gap:8px;}
+  .modal-nova-lista input{
+    flex:1;min-width:0;padding:11px 12px;border:1.5px solid rgba(11,11,10,.2);border-radius:2px;
+    font-family:'Source Serif 4';font-size:.92rem;
+  }
+  .modal-nova-lista button{flex:none;padding:11px 16px;font-size:.88rem;}
+
+  /* seção Salvos */
+  .playlist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(min-width:640px){.playlist-grid{grid-template-columns:repeat(3,1fr);}}
+  .playlist-card{
+    background:var(--paper);color:var(--black);border:1px solid rgba(11,11,10,.14);
+    border-radius:4px;padding:20px 16px;text-align:left;display:flex;flex-direction:column;gap:6px;
+    font-family:inherit;cursor:pointer;width:100%;
+  }
+  .playlist-card:hover{border-color:var(--fire);}
+  .playlist-card-nome{font-family:'Fraunces';font-weight:600;font-size:1.05rem;overflow-wrap:anywhere;}
+  .playlist-card-count{font-size:.8rem;color:#8b876f;}
+  .salvos-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:12px;}
+  .link-voltar{background:none;border:none;color:var(--black);font-family:'Source Serif 4';font-size:.92rem;cursor:pointer;padding:4px 0;text-decoration:underline;text-underline-offset:3px;}
+  .salvos-toolbar-acoes{display:flex;gap:8px;flex:none;}
+  .btn-icone{background:var(--white);border:1px solid rgba(11,11,10,.2);border-radius:4px;width:38px;height:38px;font-size:1rem;cursor:pointer;}
+  .btn-icone:hover{border-color:var(--fire);}
+  .salvos-titulo-lista{font-size:1.3rem;margin-bottom:16px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .salvos-count{font-size:.85rem;color:#8b876f;font-family:'Source Serif 4';font-weight:400;}
+
+  /* aviso offline */
+  .offline-banner{
+    position:fixed;left:0;right:0;bottom:0;z-index:70;
+    background:var(--white);color:var(--black);
+    padding:14px 18px;display:none;align-items:center;justify-content:center;gap:14px;
+    flex-wrap:wrap;text-align:center;
+    border-top:1px solid rgba(11,11,10,.14);
+    font-family:'Source Serif 4';font-size:.92rem;
+  }
+  .offline-banner.mostrar{display:flex;}
+  .offline-banner a{flex:none;}
 
   /* peça um achado */
   .peca{background:var(--black-2);color:var(--white);border:1px solid var(--line);border-radius:4px;padding:40px 26px;}
@@ -255,7 +336,7 @@
     </a>
     <nav class="nav-links" aria-label="Navegação principal">
       <a href="#achados">Achados</a>
-      <a href="#categorias">Categorias</a>
+      <a href="#salvos">Salvos</a>
       <a href="#pedir">Pedir um achado</a>
       <a href="#grupo">Grupo</a>
       <a href="#redes">Redes sociais</a>
@@ -277,7 +358,7 @@
     </button>
   </div>
   <a href="#achados">Achados</a>
-  <a href="#categorias">Categorias</a>
+  <a href="#salvos">Salvos</a>
   <a href="#pedir">Pedir um achado</a>
   <a href="#grupo">Grupo</a>
   <a href="#redes">Redes sociais</a>
@@ -317,6 +398,24 @@
       </div>
       <div class="chip-row" id="chipRow" role="tablist" aria-label="Filtrar por categoria"></div>
       <div class="grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <!-- SALVOS / PLAYLISTS -->
+  <section id="salvos" class="on-light">
+    <div class="wrap">
+      <div class="paw-divider" style="color:var(--black);opacity:.7;">
+        <span class="emoji">🔖</span>
+        <span>Suas listas</span>
+      </div>
+      <div class="section-head">
+        <div>
+          <h2>Salvos</h2>
+          <p>Guarde achados em listas com o nome que quiser — tipo "Streetwear" ou "Quarto novo". Fica salvo só neste aparelho, sem precisar de login.</p>
+        </div>
+        <button class="btn btn-ghost-dark" id="btnNovaListaSalvos">+ Nova lista</button>
+      </div>
+      <div id="salvosConteudo"></div>
     </div>
   </section>
 
@@ -416,6 +515,27 @@
 
 <div class="toast" id="toast"></div>
 
+<!-- MODAL: salvar em uma lista -->
+<div class="modal-overlay" id="modalSalvar" aria-hidden="true">
+  <div class="modal-sheet">
+    <div class="modal-head">
+      <h3>🔖 Salvar em uma lista</h3>
+      <button class="modal-close" id="modalSalvarFechar" aria-label="Fechar">✕</button>
+    </div>
+    <div class="modal-lista-playlists" id="listaPlaylistsModal"></div>
+    <form class="modal-nova-lista" id="formNovaListaModal">
+      <input type="text" id="inputNovaListaModal" placeholder="Nome da nova lista (ex: Streetwear)" required maxlength="40">
+      <button type="submit" class="btn btn-primary">Criar e salvar</button>
+    </form>
+  </div>
+</div>
+
+<!-- AVISO: sem internet -->
+<div class="offline-banner" id="offlineBanner">
+  <span>📡 Você está offline agora.</span>
+  <a class="btn btn-primary" href="game.html">🎮 Jogar para passar o tempo sem internet no estilo PZ</a>
+</div>
+
 <script>
 /* =========================================================
    BANCO DE PRODUTOS — agora vem do arquivo products.json,
@@ -436,13 +556,195 @@ async function carregarProdutos(){
     const resp = await fetch('products.json', {cache:'no-store'});
     PRODUTOS = await resp.json();
   }catch(err){
-    grid.innerHTML = '<div class="empty-state">Não consegui carregar o catálogo agora. Confere se o products.json está na mesma pasta do site.</div>';
+    grid.innerHTML = '<div class="empty-state">Não consegui carregar o catálogo agora — se estiver sem internet, dá pra <a href="game.html" style="text-decoration:underline;">jogar enquanto isso 🎮</a>.</div>';
     console.error('Erro ao carregar products.json', err);
     return;
   }
   renderChips();
   renderGrid();
+  renderizarSalvos();
 }
+
+/* =========================================================
+   SALVOS / PLAYLISTS — guardado no localStorage do aparelho,
+   sem login e sem servidor. Cada playlist tem um nome livre
+   (ex: "Streetwear") e uma lista de IDs de produtos.
+   ========================================================= */
+const CHAVE_PLAYLISTS = 'pzPlaylists';
+
+function carregarPlaylists(){
+  try{
+    const bruto = localStorage.getItem(CHAVE_PLAYLISTS);
+    return bruto ? JSON.parse(bruto) : [];
+  }catch(e){ return []; }
+}
+function salvarPlaylists(){
+  try{ localStorage.setItem(CHAVE_PLAYLISTS, JSON.stringify(playlists)); }catch(e){}
+}
+
+let playlists = carregarPlaylists();
+let playlistAbertaId = null; // null = mostra a grade de listas; senão mostra os itens dela
+let produtoIdModalAtual = null;
+
+function produtoEstaSalvo(produtoId){
+  return playlists.some(p => p.produtoIds.includes(produtoId));
+}
+function criarPlaylist(nome){
+  const nova = { id: 'pl_' + Date.now(), nome: nome.trim().slice(0,40), produtoIds: [] };
+  playlists.push(nova);
+  salvarPlaylists();
+  return nova;
+}
+function renomearPlaylist(id, novoNome){
+  const p = playlists.find(x => x.id === id);
+  if(p){ p.nome = novoNome.trim().slice(0,40); salvarPlaylists(); }
+}
+function excluirPlaylist(id){
+  playlists = playlists.filter(x => x.id !== id);
+  salvarPlaylists();
+}
+function alternarProdutoNaPlaylist(playlistId, produtoId){
+  const p = playlists.find(x => x.id === playlistId);
+  if(!p) return;
+  const idx = p.produtoIds.indexOf(produtoId);
+  if(idx === -1) p.produtoIds.push(produtoId); else p.produtoIds.splice(idx,1);
+  salvarPlaylists();
+}
+
+/* ---------- modal "salvar em uma lista" ---------- */
+const modalSalvar = document.getElementById('modalSalvar');
+
+function abrirModalSalvar(produtoId){
+  produtoIdModalAtual = produtoId;
+  renderizarListaPlaylistsModal();
+  modalSalvar.classList.add('aberto');
+  modalSalvar.setAttribute('aria-hidden','false');
+}
+function fecharModalSalvar(){
+  modalSalvar.classList.remove('aberto');
+  modalSalvar.setAttribute('aria-hidden','true');
+  produtoIdModalAtual = null;
+}
+function renderizarListaPlaylistsModal(){
+  const cont = document.getElementById('listaPlaylistsModal');
+  if(playlists.length === 0){
+    cont.innerHTML = '<p class="modal-vazio">Você ainda não tem nenhuma lista. Cria a primeira aqui embaixo 👇</p>';
+    return;
+  }
+  cont.innerHTML = playlists.map(p => `
+    <label class="playlist-row">
+      <input type="checkbox" data-playlist-id="${p.id}" ${p.produtoIds.includes(produtoIdModalAtual) ? 'checked' : ''}>
+      <span class="playlist-row-nome">${p.nome}</span>
+      <span class="playlist-row-count">${p.produtoIds.length}</span>
+    </label>
+  `).join('');
+}
+
+document.getElementById('listaPlaylistsModal').addEventListener('change', (e)=>{
+  const input = e.target.closest('input[type="checkbox"]');
+  if(!input || produtoIdModalAtual === null) return;
+  alternarProdutoNaPlaylist(input.dataset.playlistId, produtoIdModalAtual);
+  renderizarListaPlaylistsModal();
+  renderGrid();
+  renderizarSalvos();
+});
+
+document.getElementById('formNovaListaModal').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const input = document.getElementById('inputNovaListaModal');
+  const nome = input.value.trim();
+  if(!nome || produtoIdModalAtual === null) return;
+  const nova = criarPlaylist(nome);
+  alternarProdutoNaPlaylist(nova.id, produtoIdModalAtual);
+  input.value = '';
+  renderizarListaPlaylistsModal();
+  renderGrid();
+  renderizarSalvos();
+  showToast(`Salvo em "${nova.nome}" 🔖`);
+});
+
+document.getElementById('modalSalvarFechar').addEventListener('click', fecharModalSalvar);
+modalSalvar.addEventListener('click', (e)=>{ if(e.target === modalSalvar) fecharModalSalvar(); });
+
+/* ---------- seção Salvos ---------- */
+function renderizarSalvos(){
+  const cont = document.getElementById('salvosConteudo');
+  if(!cont) return;
+
+  if(playlistAbertaId){
+    const p = playlists.find(x => x.id === playlistAbertaId);
+    if(!p){ playlistAbertaId = null; renderizarSalvos(); return; }
+
+    const itens = PRODUTOS.filter(prod => p.produtoIds.includes(prod.id));
+    cont.innerHTML = `
+      <div class="salvos-toolbar">
+        <button class="link-voltar" id="btnVoltarListas">← Todas as listas</button>
+        <div class="salvos-toolbar-acoes">
+          <button class="btn-icone" id="btnRenomearLista" title="Renomear lista" aria-label="Renomear lista">✏️</button>
+          <button class="btn-icone" id="btnExcluirLista" title="Excluir lista" aria-label="Excluir lista">🗑️</button>
+        </div>
+      </div>
+      <h3 class="salvos-titulo-lista">${p.nome} <span class="salvos-count">${itens.length} ${itens.length === 1 ? 'item' : 'itens'}</span></h3>
+      <div class="grid">
+        ${itens.length ? itens.map(criarCardHTML).join('') : '<div class="empty-state">Essa lista ainda está vazia. Toque no 🔖 de um achado pra salvar aqui.</div>'}
+      </div>
+    `;
+    document.getElementById('btnVoltarListas').addEventListener('click', ()=>{ playlistAbertaId = null; renderizarSalvos(); });
+    document.getElementById('btnRenomearLista').addEventListener('click', ()=>{
+      const novoNome = prompt('Novo nome da lista:', p.nome);
+      if(novoNome && novoNome.trim()){ renomearPlaylist(p.id, novoNome); renderizarSalvos(); }
+    });
+    document.getElementById('btnExcluirLista').addEventListener('click', ()=>{
+      if(confirm(`Excluir a lista "${p.nome}"? Os achados continuam no catálogo, só saem dessa lista.`)){
+        excluirPlaylist(p.id);
+        playlistAbertaId = null;
+        renderizarSalvos();
+        renderGrid();
+      }
+    });
+    return;
+  }
+
+  if(playlists.length === 0){
+    cont.innerHTML = '<div class="empty-state">Você ainda não criou nenhuma lista.<br>Toque no ícone 🔖 em qualquer achado, ou em "+ Nova lista" acima.</div>';
+    return;
+  }
+
+  cont.innerHTML = `<div class="playlist-grid">` + playlists.map(p => `
+    <button class="playlist-card" data-playlist-id="${p.id}">
+      <span class="playlist-card-nome">${p.nome}</span>
+      <span class="playlist-card-count">${p.produtoIds.length} ${p.produtoIds.length === 1 ? 'item' : 'itens'}</span>
+    </button>
+  `).join('') + `</div>`;
+
+  cont.querySelectorAll('.playlist-card').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      playlistAbertaId = btn.dataset.playlistId;
+      renderizarSalvos();
+    });
+  });
+}
+
+document.getElementById('btnNovaListaSalvos').addEventListener('click', ()=>{
+  const nome = prompt('Nome da nova lista (ex: Streetwear):');
+  if(nome && nome.trim()){ criarPlaylist(nome); renderizarSalvos(); }
+});
+
+renderizarSalvos();
+
+/* ---------- aviso de offline (com o mini-game) ---------- */
+const offlineBanner = document.getElementById('offlineBanner');
+function atualizarStatusOnline(){
+  if(navigator.onLine){
+    offlineBanner.classList.remove('mostrar');
+  }else{
+    offlineBanner.classList.add('mostrar');
+  }
+}
+window.addEventListener('online', atualizarStatusOnline);
+window.addEventListener('offline', atualizarStatusOnline);
+atualizarStatusOnline();
+
 
 function renderChips(){
   chipRow.innerHTML = "";
@@ -465,6 +767,49 @@ function formatBRL(v){
   return v.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 }
 
+const iconeSalvarVazio = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>';
+const iconeSalvarCheio = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>';
+
+// escapa texto pra usar com segurança dentro de HTML/atributos — protege
+// o site mesmo se algum produto no products.json vier com aspas ou
+// caracteres estranhos (link colado torto, nome com símbolo, etc).
+function escaparHTML(s){
+  if (s === null || s === undefined) return "";
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function criarCardHTML(p){
+  const desconto = p.precoRef ? Math.round(100 - (p.preco/p.precoRef*100)) : null;
+  const salvo = produtoEstaSalvo(p.id);
+  return `
+    <div class="card">
+      <div class="card-photo">
+        ${desconto ? `<span class="tag-badge">🔥 -${desconto}%</span>` : ""}
+        <button class="save-btn ${salvo ? 'is-saved' : ''}" data-save-id="${p.id}" aria-label="Salvar em uma lista">
+          ${salvo ? iconeSalvarCheio : iconeSalvarVazio}
+        </button>
+        <img src="${escaparHTML(p.imagem)}" alt="${escaparHTML(p.nome)}" loading="lazy">
+        <span class="store-badge">${escaparHTML(p.loja)}</span>
+      </div>
+      <div class="card-body">
+        <span class="card-cat">${escaparHTML(p.categoria)}</span>
+        <span class="card-name">${escaparHTML(p.nome)}</span>
+        <div class="price-row">
+          <span class="price-now">${formatBRL(p.preco)}</span>
+          ${p.precoRef ? `<span class="price-old">${formatBRL(p.precoRef)}</span>` : ""}
+        </div>
+        ${p.cupom ? `<span style="font-size:.78rem;color:#6b6857;font-family:'Source Serif 4';">Cupom: <strong>${escaparHTML(p.cupom)}</strong></span>` : ""}
+        <a class="card-cta" href="${escaparHTML(p.url)}" target="_blank" rel="noopener sponsored">Ver oferta</a>
+      </div>
+    </div>
+  `;
+}
+
 function renderGrid(){
   let lista = PRODUTOS.filter(p=>{
     const matchCategoria = categoriaAtiva === "Todos"
@@ -474,37 +819,21 @@ function renderGrid(){
     return matchCategoria && matchBusca;
   });
 
-  grid.innerHTML = "";
-
   if(lista.length === 0){
     grid.innerHTML = '<div class="empty-state">Nenhum achado por aqui ainda. Tenta outra busca ou <a href="#pedir" style="text-decoration:underline;">peça um achado</a>.</div>';
     return;
   }
 
-  lista.forEach(p=>{
-    const desconto = p.precoRef ? Math.round(100 - (p.preco/p.precoRef*100)) : null;
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <div class="card-photo">
-        ${desconto ? `<span class="tag-badge">🔥 -${desconto}%</span>` : ""}
-        <img src="${p.imagem}" alt="${p.nome}" loading="lazy">
-        <span class="store-badge">${p.loja}</span>
-      </div>
-      <div class="card-body">
-        <span class="card-cat">${p.categoria}</span>
-        <span class="card-name">${p.nome}</span>
-        <div class="price-row">
-          <span class="price-now">${formatBRL(p.preco)}</span>
-          ${p.precoRef ? `<span class="price-old">${formatBRL(p.precoRef)}</span>` : ""}
-        </div>
-        ${p.cupom ? `<span style="font-size:.78rem;color:#6b6857;font-family:'Source Serif 4';">Cupom: <strong>${p.cupom}</strong></span>` : ""}
-        <a class="card-cta" href="${p.url}" target="_blank" rel="noopener sponsored">Ver oferta</a>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
+  grid.innerHTML = lista.map(criarCardHTML).join('');
 }
+
+// um clique só cuida do botão de salvar em qualquer grade de produtos (achados ou salvos)
+document.addEventListener('click', (e)=>{
+  const btn = e.target.closest('.save-btn');
+  if(!btn) return;
+  abrirModalSalvar(Number(btn.dataset.saveId));
+});
+
 
 document.getElementById('searchBtn').addEventListener('click', ()=>{
   termoBusca = document.getElementById('searchInput').value.trim().toLowerCase();
@@ -522,7 +851,7 @@ document.getElementById('searchInput').addEventListener('keydown', (e)=>{
 carregarProdutos();
 
 /* ---------- Pedir um achado -> abre WhatsApp com mensagem pronta ---------- */
-const NUMERO_WHATSAPP = "5511959852861"; // troque pelo número real do grupo/atendimento da PZ
+const NUMERO_WHATSAPP = "5511999999999"; // troque pelo número real do grupo/atendimento da PZ
 document.getElementById('pedirForm').addEventListener('submit', (e)=>{
   e.preventDefault();
   const nome = document.getElementById('pedirNome').value.trim();
