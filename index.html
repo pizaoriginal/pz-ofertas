@@ -1,923 +1,476 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PZ Ofertas — A PZ acha primeiro, você só clica</title>
-<meta name="description" content="Achadinhos, cupons e ofertas selecionadas em moda, quarto, tech & games e livros. A PZ garimpa, você aproveita.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PZ Ofertas — Achados, Ofertas e Cupons</title>
+<meta name="description" content="Achados, ofertas, cupons e produtos selecionados pela PZ. A PZ encontra, filtra e entrega o link.">
 <link rel="canonical" href="https://pz-ofertas.pages.dev/">
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#0B0B0A">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="PZ Ofertas">
-<link rel="apple-touch-icon" href="/icon-192.png">
+<meta name="theme-color" content="#080808">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PZ Ofertas">
-<meta property="og:title" content="PZ Ofertas — A PZ acha primeiro, você só clica">
-<meta property="og:description" content="Achadinhos, cupons e ofertas selecionadas em moda, quarto, tech & games e livros.">
+<meta property="og:title" content="PZ Ofertas — Achados, Ofertas e Cupons">
+<meta property="og:description" content="A PZ acha primeiro. Você só clica.">
 <meta property="og:url" content="https://pz-ofertas.pages.dev/">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PZ Ofertas">
-<meta name="twitter:description" content="Achadinhos, cupons e ofertas selecionadas em moda, quarto, tech & games e livros.">
-<link rel="icon" href="data:image/jpeg;base64,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" type="image/jpeg">
+<meta property="og:image" content="https://pz-ofertas.pages.dev/assets/mascot/panda-celular.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PZ Ofertas — Achados, Ofertas e Cupons">
+<meta name="twitter:description" content="A PZ encontra, filtra e entrega o link.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="PZ Ofertas">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --black:#0B0B0A;
-    --black-2:#151412;
-    --white:#F6F3EC;
-    --paper:#F6F3EC;
-    --ink:#0B0B0A;
-    --fire:#E2492D;
-    --gold:#C9962B;
-    --line:rgba(246,243,236,.16);
-    --line-dark:rgba(11,11,10,.14);
-    --radius-photo:6px;
-    --maxw:1180px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;overflow-x:hidden;}
-  body{
-    margin:0;
-    background:var(--black);
-    color:var(--white);
-    font-family:'Source Serif 4', serif;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  h1,h2,h3,.display{
-    font-family:'Fraunces', serif;
-    font-optical-sizing:auto;
-    font-weight:600;
-    font-style:normal;
-    line-height:1.06;
-    margin:0;
-    color:inherit;
-  }
-  a{color:inherit;text-decoration:none;}
-  img{max-width:100%;display:block;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
-  @media(max-width:400px){.wrap{padding:0 16px;}}
-  button{font-family:inherit;cursor:pointer;border:none;}
-  :focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
-  @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
-
-  /* ---------- header ---------- */
-  header{
-    position:sticky;top:0;z-index:40;
-    background:rgba(11,11,10,.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px;}
-  .brand{display:flex;align-items:center;gap:11px;font-family:'Fraunces';font-weight:600;font-size:1.25rem;letter-spacing:.2px;color:var(--white);}
-  .nav-links{display:none;gap:26px;font-size:.95rem;font-weight:500;color:var(--white);}
-  .nav-links a{padding:6px 2px;border-bottom:2px solid transparent;}
-  .nav-links a:hover{border-color:var(--fire);}
-  .nav-cta{display:flex;align-items:center;gap:10px;}
-  .nav-cta .btn-primary{display:none;}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:11px 18px;border-radius:2px;font-weight:600;font-size:.92rem;
-    white-space:nowrap;font-family:'Source Serif 4', serif;
-  }
-  .btn-primary{background:var(--white);color:var(--black);}
-  .btn-primary:hover{background:var(--fire);color:#fff;}
-  .btn-ghost{background:transparent;color:var(--white);border:1.5px solid var(--white);}
-  .btn-ghost:hover{background:var(--white);color:var(--black);}
-  .menu-toggle{display:inline-flex;background:none;padding:6px;}
-  @media(min-width:860px){
-    .nav-links{display:flex;}
-    .menu-toggle{display:none;}
-    .nav-cta .btn-primary{display:inline-flex;}
-  }
-
-  /* ---------- hero ---------- */
-  .hero{padding:56px 0 46px;}
-  .hero-content{max-width:640px;}
-  .eyebrow-tag{
-    display:inline-flex;align-items:center;gap:8px;
-    color:var(--white);opacity:.82;
-    padding:0;font-size:.9rem;font-weight:500;margin-bottom:18px;font-family:'Source Serif 4';
-  }
-  .hero h1{font-size:clamp(2.1rem,7vw,3.5rem);color:var(--white);}
-  .hero h1 .accent{color:var(--fire);font-style:italic;}
-  .hero p.lead{font-size:1.14rem;color:#CFCBBE;max-width:46ch;margin:18px 0 26px;font-family:'Source Serif 4';}
-  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;}
-  .search-row{
-    margin-top:28px;display:flex;background:var(--white);border:1.5px solid var(--white);
-    border-radius:2px;padding:6px;gap:6px;max-width:520px;
-  }
-  .search-row input{
-    flex:1;min-width:0;border:none;background:transparent;padding:12px 14px;font-size:.98rem;font-family:'Source Serif 4',serif;color:var(--black);
-  }
-  .search-row input:focus{outline:none;}
-  .search-row button{background:var(--black);color:#fff;border-radius:1px;padding:0 18px;font-weight:600;font-family:'Source Serif 4';flex:none;}
-
-  /* ---------- section dividers ---------- */
-  .paw-divider{display:flex;align-items:center;gap:10px;margin:6px 0 22px;color:var(--white);opacity:.8;}
-  .paw-divider .emoji{font-size:1.1rem;}
-  .paw-divider span{font-size:.85rem;font-weight:500;letter-spacing:.2px;font-family:'Source Serif 4';}
-
-  /* ---------- sections ---------- */
-  section{padding:56px 0;}
-  section.on-light{background:var(--white);color:var(--black);}
-  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:26px;flex-wrap:wrap;}
-  .section-head h2{font-size:clamp(1.5rem,3vw,2.1rem);}
-  .section-head p{color:#CFCBBE;margin-top:6px;max-width:52ch;font-family:'Source Serif 4';}
-  section.on-light .section-head p{color:#4a473c;}
-
-  /* category chips */
-  .chip-row{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;margin-bottom:30px;-ms-overflow-style:none;scrollbar-width:none;}
-  .chip-row::-webkit-scrollbar{display:none;}
-  .chip{
-    flex:none;padding:9px 18px;border-radius:2px;border:1.5px solid rgba(246,243,236,.25);
-    background:transparent;font-weight:600;font-size:.9rem;color:var(--white);font-family:'Source Serif 4';
-  }
-  .chip[aria-pressed="true"]{background:var(--white);color:var(--black);border-color:var(--white);}
-  .chip:hover{border-color:var(--fire);}
-
-  /* product grid */
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
-  @media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr);}}
-  @media(min-width:980px){.grid{grid-template-columns:repeat(4,1fr);}}
-
-  .card{
-    background:var(--white);border:1px solid rgba(11,11,10,.14);border-radius:4px;overflow:hidden;
-    display:flex;flex-direction:column;
-  }
-  .card-photo{position:relative;aspect-ratio:1/1;overflow:hidden;background:#E7E3D6;}
-  .card-photo img{width:100%;height:100%;object-fit:cover;border-radius:0;}
-  .tag-badge{
-    position:absolute;top:10px;left:-6px;background:var(--fire);color:#fff;
-    font-size:.72rem;font-weight:700;padding:5px 12px 5px 14px;font-family:'Source Serif 4';
-    clip-path:polygon(0 0,100% 0,92% 50%,100% 100%,0 100%);
-  }
-  .store-badge{
-    position:absolute;bottom:10px;right:10px;background:rgba(11,11,10,.82);color:#fff;
-    font-size:.68rem;font-weight:600;padding:4px 9px;border-radius:2px;
-  }
-  .card-body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:8px;flex:1;color:var(--black);}
-  .card-cat{font-size:.72rem;font-weight:600;color:#6b6857;text-transform:none;}
-  .card-name{font-family:'Fraunces';font-size:1rem;font-weight:500;line-height:1.3;min-height:2.5em;}
-  .price-row{display:flex;align-items:baseline;gap:8px;margin-top:auto;}
-  .price-now{font-family:'Fraunces';font-weight:600;font-size:1.18rem;color:var(--black);}
-  .price-old{font-size:.8rem;color:#9a9686;text-decoration:line-through;font-family:'Source Serif 4';}
-  .card-cta{
-    margin-top:8px;background:var(--black);color:#fff;text-align:center;
-    padding:10px 12px;border-radius:2px;font-weight:600;font-size:.88rem;font-family:'Source Serif 4';
-  }
-  .card-cta:hover{background:var(--fire);}
-
-  .empty-state{grid-column:1/-1;text-align:center;padding:40px 10px;color:#a09c8c;}
-
-  /* botão de salvar no card */
-  .save-btn{
-    position:absolute;top:8px;right:8px;z-index:2;
-    width:32px;height:32px;border-radius:50%;
-    background:rgba(11,11,10,.55);border:1px solid rgba(255,255,255,.4);
-    display:flex;align-items:center;justify-content:center;color:#fff;padding:0;
-  }
-  .save-btn svg{width:15px;height:15px;}
-  .save-btn.is-saved{background:var(--fire);border-color:var(--fire);}
-  .save-btn:hover{border-color:#fff;}
-
-  /* botão ghost em fundo claro (seção Salvos) */
-  .btn-ghost-dark{background:transparent;color:var(--black);border:1.5px solid var(--black);}
-  .btn-ghost-dark:hover{background:var(--black);color:#fff;}
-
-  /* modal "salvar em uma lista" */
-  .modal-overlay{
-    position:fixed;inset:0;background:rgba(0,0,0,.6);
-    display:flex;align-items:flex-end;justify-content:center;
-    z-index:90;opacity:0;pointer-events:none;transition:opacity .2s ease;
-  }
-  .modal-overlay.aberto{opacity:1;pointer-events:auto;}
-  .modal-sheet{
-    background:var(--white);color:var(--black);width:100%;max-width:480px;
-    border-radius:12px 12px 0 0;padding:22px 20px 26px;max-height:75vh;overflow-y:auto;
-    transform:translateY(16px);transition:transform .2s ease;
-  }
-  .modal-overlay.aberto .modal-sheet{transform:translateY(0);}
-  @media(min-width:640px){
-    .modal-overlay{align-items:center;}
-    .modal-sheet{border-radius:8px;}
-  }
-  .modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
-  .modal-head h3{font-family:'Fraunces';font-size:1.2rem;}
-  .modal-close{background:none;border:none;font-size:1.3rem;line-height:1;color:var(--black);cursor:pointer;padding:4px;}
-  .modal-lista-playlists{display:flex;flex-direction:column;margin-bottom:16px;max-height:38vh;overflow-y:auto;}
-  .playlist-row{
-    display:flex;align-items:center;gap:10px;padding:11px 6px;border-bottom:1px solid rgba(11,11,10,.1);
-    cursor:pointer;font-family:'Source Serif 4';
-  }
-  .playlist-row input{width:18px;height:18px;flex:none;accent-color:var(--fire);}
-  .playlist-row-nome{flex:1;font-weight:500;}
-  .playlist-row-count{color:#8b876f;font-size:.85rem;}
-  .modal-vazio{color:#6b6857;font-size:.92rem;margin:0 0 14px;}
-  .modal-nova-lista{display:flex;gap:8px;}
-  .modal-nova-lista input{
-    flex:1;min-width:0;padding:11px 12px;border:1.5px solid rgba(11,11,10,.2);border-radius:2px;
-    font-family:'Source Serif 4';font-size:.92rem;
-  }
-  .modal-nova-lista button{flex:none;padding:11px 16px;font-size:.88rem;}
-
-  /* seção Salvos */
-  .playlist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
-  @media(min-width:640px){.playlist-grid{grid-template-columns:repeat(3,1fr);}}
-  .playlist-card{
-    background:var(--paper);color:var(--black);border:1px solid rgba(11,11,10,.14);
-    border-radius:4px;padding:20px 16px;text-align:left;display:flex;flex-direction:column;gap:6px;
-    font-family:inherit;cursor:pointer;width:100%;
-  }
-  .playlist-card:hover{border-color:var(--fire);}
-  .playlist-card-nome{font-family:'Fraunces';font-weight:600;font-size:1.05rem;overflow-wrap:anywhere;}
-  .playlist-card-count{font-size:.8rem;color:#8b876f;}
-  .salvos-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:12px;}
-  .link-voltar{background:none;border:none;color:var(--black);font-family:'Source Serif 4';font-size:.92rem;cursor:pointer;padding:4px 0;text-decoration:underline;text-underline-offset:3px;}
-  .salvos-toolbar-acoes{display:flex;gap:8px;flex:none;}
-  .btn-icone{background:var(--white);border:1px solid rgba(11,11,10,.2);border-radius:4px;width:38px;height:38px;font-size:1rem;cursor:pointer;}
-  .btn-icone:hover{border-color:var(--fire);}
-  .salvos-titulo-lista{font-size:1.3rem;margin-bottom:16px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
-  .salvos-count{font-size:.85rem;color:#8b876f;font-family:'Source Serif 4';font-weight:400;}
-
-  /* aviso offline */
-  .offline-banner{
-    position:fixed;left:0;right:0;bottom:0;z-index:70;
-    background:var(--white);color:var(--black);
-    padding:14px 18px;display:none;align-items:center;justify-content:center;gap:14px;
-    flex-wrap:wrap;text-align:center;
-    border-top:1px solid rgba(11,11,10,.14);
-    font-family:'Source Serif 4';font-size:.92rem;
-  }
-  .offline-banner.mostrar{display:flex;}
-  .offline-banner a{flex:none;}
-
-  /* peça um achado */
-  .peca{background:var(--black-2);color:var(--white);border:1px solid var(--line);border-radius:4px;padding:40px 26px;}
-  @media(min-width:860px){.peca{padding:52px 60px;}}
-  .peca-grid{display:grid;grid-template-columns:1fr;gap:30px;}
-  @media(min-width:860px){.peca-grid{grid-template-columns:1fr 1fr;gap:50px;align-items:center;}}
-  .peca h2{color:#fff;font-size:clamp(1.5rem,3vw,2rem);}
-  .peca p{color:#CFCBBE;margin-top:12px;max-width:44ch;font-family:'Source Serif 4';}
-  .peca form{display:flex;flex-direction:column;gap:12px;}
-  .peca label{font-size:.82rem;font-weight:600;color:#CFCBBE;margin-bottom:-6px;font-family:'Source Serif 4';}
-  .peca input,.peca textarea{
-    width:100%;padding:13px 14px;border-radius:2px;border:1.5px solid rgba(255,255,255,.18);
-    background:var(--black);color:#fff;font-family:'Source Serif 4',serif;font-size:.95rem;
-  }
-  .peca textarea{min-height:80px;resize:vertical;}
-  .peca input::placeholder,.peca textarea::placeholder{color:#8b886f;}
-  .peca .btn-primary{align-self:flex-start;margin-top:4px;}
-
-  /* grupo */
-  .grupo{
-    display:grid;grid-template-columns:1fr;gap:24px;
-    background:var(--white);color:var(--black);border-radius:4px;padding:36px 26px;align-items:center;
-  }
-  @media(min-width:860px){.grupo{grid-template-columns:auto 1fr auto;padding:34px 46px;gap:34px;}}
-  .grupo .emoji-badge{font-size:2.6rem;flex:none;line-height:1;}
-  .grupo h3{font-size:1.4rem;color:var(--black);}
-  .grupo p{color:#4a473c;margin-top:6px;max-width:48ch;font-family:'Source Serif 4';}
-  .grupo .btn-primary{background:var(--black);color:#fff;}
-  .grupo .btn-primary:hover{background:var(--fire);}
-
-  /* redes sociais */
-  .social-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
-  @media(min-width:640px){.social-grid{grid-template-columns:repeat(4,1fr);}}
-  .social-card{
-    background:var(--white);border:1px solid rgba(11,11,10,.14);border-radius:4px;
-    padding:22px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--black);
-  }
-  .social-card:hover{border-color:var(--fire);}
-  .social-card svg{width:28px;height:28px;}
-  .social-card .handle{font-weight:600;font-size:.92rem;font-family:'Fraunces';}
-  .social-card .platform{font-size:.78rem;color:#8b876f;font-family:'Source Serif 4';}
-
-  /* transparência */
-  .disclaimer{
-    display:flex;gap:14px;align-items:flex-start;background:var(--black-2);
-    border:1px solid var(--line);border-radius:4px;padding:18px 20px;font-size:.85rem;color:#CFCBBE;font-family:'Source Serif 4';
-  }
-  .disclaimer .emoji{font-size:1.1rem;flex:none;}
-
-  footer{border-top:1px solid var(--line);padding:34px 0 40px;background:var(--black);}
-  .foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center;}
-  .foot-brand{font-family:'Fraunces';font-weight:600;font-size:1.05rem;color:var(--white);}
-  .foot-links{display:flex;gap:18px;font-size:.85rem;color:#a8a496;flex-wrap:wrap;font-family:'Source Serif 4';}
-
-  .toast{
-    position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
-    background:var(--white);color:var(--black);padding:13px 20px;border-radius:2px;font-size:.9rem;font-weight:500;
-    opacity:0;pointer-events:none;transition:opacity .25s ease, transform .25s ease;z-index:80;font-family:'Source Serif 4';
-  }
-  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-
-  .mobile-panel{
-    display:none;position:fixed;inset:0;background:var(--black);z-index:60;
-    padding:20px;flex-direction:column;gap:6px;
-  }
-  .mobile-panel.open{display:flex;}
-  .mobile-panel a{padding:14px 4px;font-size:1.15rem;font-weight:500;color:var(--white);border-bottom:1px solid var(--line);font-family:'Fraunces';}
-  .mobile-panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
-  .mobile-panel-head .brand{color:var(--white);}
+:root{--bk:#080808;--bk2:#0d0d0d;--bk3:#111;--wh:#f5f5f0;--wh2:#e8e8e3;--rd:#e53935;--ln:rgba(245,245,240,.14);--mut:rgba(245,245,240,.58);
+--serif:'Playfair Display',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;--pad:clamp(22px,6vw,56px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bk);color:var(--wh);font-family:var(--sans);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}
+.wrap{padding-inline:max(var(--pad),env(safe-area-inset-left),env(safe-area-inset-right));max-width:1440px;margin-inline:auto;min-width:0}
+.wrap>*{min-width:0}
+h1,h2,h3,p{overflow-wrap:anywhere}
+.micro{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--mut)}
+.micro b{color:var(--rd)}
+.serif{font-family:var(--serif)}em{font-style:italic;color:var(--rd)}
+h1,h2,h3{font-family:var(--serif);font-weight:900;line-height:.98;letter-spacing:-.02em}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--rd);color:#fff;border:0;padding:15px 24px;font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .25s,background .25s,gap .25s}
+.btn:hover{background:#ff4b47;gap:16px;transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:1px solid var(--wh);color:var(--wh)}.btn.ghost:hover{background:var(--wh);color:var(--bk)}
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(8,8,8,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--ln)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-weight:800;letter-spacing:.14em;font-size:15px;display:flex;gap:8px;align-items:center}.logo i{font-style:normal;color:var(--rd)}
+nav{display:flex;gap:28px}nav a{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);padding:6px 0;border-bottom:2px solid transparent;transition:.25s}
+nav a:hover,nav a.on{color:var(--wh);border-color:var(--rd)}
+.hd-r{display:flex;gap:8px;align-items:center}
+.ib{background:none;border:1px solid var(--ln);width:44px;height:44px;display:grid;place-items:center;cursor:pointer;transition:.25s}.ib:hover{border-color:var(--rd);color:var(--rd)}
+#burger{display:none}
+@media(max-width:860px){nav{position:fixed;inset:64px 0 auto 0;background:var(--bk);flex-direction:column;gap:0;padding:8px var(--pad) 24px;border-bottom:1px solid var(--ln);transform:translateY(-8px);opacity:0;pointer-events:none;transition:.3s}
+nav.open{transform:none;opacity:1;pointer-events:auto}nav a{padding:18px 0;font-size:18px;border-bottom:1px solid var(--ln)}#burger{display:grid}}
+/* hero */
+.hero{position:relative;border-bottom:1px solid var(--ln)}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,4vw,64px);padding-block:clamp(32px,6vw,80px) 0;align-items:end}
+.hero-top{display:flex;justify-content:space-between;gap:12px;margin-bottom:clamp(24px,5vw,56px);border-top:1px solid var(--ln);padding-top:12px;grid-column:1/-1}
+.hero h1{font-size:clamp(46px,9.2vw,152px);margin-bottom:28px}
+.hero p.lead{max-width:440px;color:var(--mut);margin-bottom:28px}
+.sb{display:flex;border:1px solid var(--wh);background:var(--bk2);max-width:640px;transition:border-color .25s}.sb:focus-within{border-color:var(--rd)}
+.sb input{flex:1;min-width:0;background:none;border:0;outline:0;padding:20px 18px;font-size:16px}
+.sb input::placeholder{color:rgba(245,245,240,.4)}
+.sb .si{display:none}.sb button{background:var(--rd);border:0;color:#fff;padding:0 26px;font-weight:800;letter-spacing:.1em;font-size:12px;cursor:pointer;text-transform:uppercase}
+.tags{display:flex;gap:18px;margin-top:20px;flex-wrap:wrap;padding-bottom:clamp(28px,5vw,64px)}
+.frame{position:relative;align-self:end;background:#1c1c1c;border:1px solid var(--ln);aspect-ratio:4/5;overflow:hidden;margin-bottom:-1px}
+.frame img{width:100%;height:100%!important;object-fit:cover;animation:float 7s ease-in-out infinite}
+.frame .tag{position:absolute;left:12px;top:12px;background:var(--rd);color:#fff;padding:4px 8px}
+.frame .no{position:absolute;right:12px;bottom:10px;font-family:var(--serif);font-size:54px;font-weight:900;color:var(--wh);opacity:.9;line-height:1}
+@keyframes float{50%{transform:translateY(-8px) scale(1.02)}}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.frame{aspect-ratio:1/1;order:-1;max-height:340px;margin-bottom:24px}.hero-top{display:none}.hero .wrap{padding-top:20px}.tags{padding-bottom:36px}.sb button{padding:0 18px}}
+/* sections */
+section{padding-block:clamp(56px,9vw,120px);border-bottom:1px solid var(--ln)}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+.sh h2{font-size:clamp(40px,7vw,96px)}.sh p{color:var(--mut);max-width:320px}
+/* filters */
+.fl{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chip{background:none;border:1px solid var(--ln);padding:12px 16px;min-height:44px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.chip:hover{border-color:var(--wh)}.chip.on{background:var(--wh);color:var(--bk);border-color:var(--wh)}
+.sel{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:36px}
+.sel select{background:var(--bk2);border:1px solid var(--ln);padding:12px;min-height:46px;font-size:13px;width:100%;border-radius:0}
+.sel select:focus{outline:1px solid var(--rd)}
+@media(max-width:700px){.sel{grid-template-columns:1fr 1fr}}
+.cnt{margin:-20px 0 20px}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:var(--ln);border:1px solid var(--ln)}
+@media(max-width:520px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--bk);display:flex;flex-direction:column;position:relative;transition:transform .3s,background .3s}
+.card:hover{background:var(--bk3);transform:translateY(-4px);z-index:2}
+.card .im{aspect-ratio:1;overflow:hidden;background:var(--wh2)}
+.card .im img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.card:hover .im img{transform:scale(1.06)}
+.bd{position:absolute;top:10px;left:10px;display:flex;gap:4px;flex-direction:column;align-items:flex-start}
+.bd span{background:var(--rd);color:#fff;font-size:11px;font-weight:800;padding:4px 8px;letter-spacing:.06em}.bd span.c{background:var(--bk);color:var(--wh);border:1px solid var(--wh)}
+.cb{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cb h3{font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:0;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pr{display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline;margin-top:auto}.pr b{font-size:20px;font-weight:800}.pr s{font-size:12px;color:var(--mut)}
+.card .btn{justify-content:center;padding:12px;font-size:11px;margin-top:4px}
+@media(max-width:520px){.cb{padding:10px}.pr b{font-size:17px}}
+.sk{aspect-ratio:3/4;background:linear-gradient(90deg,var(--bk2),var(--bk3),var(--bk2));background-size:200%;animation:sh 1.4s infinite}@keyframes sh{to{background-position:-200%}}
+.more{text-align:center;margin-top:32px}
+.empty{grid-column:1/-1;background:var(--wh);color:var(--bk);padding:40px 20px;text-align:center}
+.empty img{width:180px;margin:0 auto 16px;mix-blend-mode:multiply}.empty h3{font-size:34px;margin-bottom:8px}.empty p{margin-bottom:20px;color:#555}
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ln);border:1px solid var(--ln)}
+.cat{background:var(--bk);padding:28px 24px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;border:0;cursor:pointer;position:relative;overflow:hidden;transition:background .3s,color .3s}
+.cat:hover{background:var(--wh);color:var(--bk)}.cat:hover .n{color:var(--rd)}
+.cat .n{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--mut)}
+.cat h3{font-size:clamp(34px,4.5vw,64px);margin-bottom:6px}.cat p{font-size:14px;opacity:.7}
+.cat:after{content:"→";position:absolute;right:22px;top:22px;transition:transform .3s}.cat:hover:after{transform:translateX(6px)}
+@media(max-width:860px){.cats{grid-template-columns:1fr 1fr}.cat{min-height:160px;padding:18px 16px}}
+/* pedir */
+.pedir{background:var(--wh);color:var(--bk)}.pedir .micro{color:#666}
+.pedir .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,80px);align-items:center}
+.pedir h2{font-size:clamp(48px,8vw,120px);margin:10px 0 16px}.pedir p.lead{font-size:20px;font-family:var(--serif);font-style:italic;margin-bottom:20px}
+.pedir .pimg{width:min(100%,380px);mix-blend-mode:multiply;margin-top:12px}
+form{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+form .f{grid-column:1/-1}.h{grid-column:span 1}
+label{display:grid;gap:6px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+form input,form select,form textarea{background:transparent;border:0;border-bottom:2px solid var(--bk);padding:10px 0;outline:0;font-size:16px;border-radius:0;text-transform:none;letter-spacing:0;font-weight:500;color:var(--bk)}
+form input:focus,form select:focus,form textarea:focus{border-color:var(--rd)}
+form .btn{background:var(--bk);justify-self:start}form .btn:hover{background:var(--rd)}
+#ok{display:none;background:var(--bk);color:var(--wh);padding:32px}#ok h3{font-size:42px;margin-bottom:8px}
+#err{color:var(--rd);font-weight:700;font-size:13px}
+@media(max-width:860px){.pedir .wrap{grid-template-columns:1fr}.pedir .pimg{width:220px}form{grid-template-columns:1fr}.h{grid-column:1/-1}}
+/* ecosystem */
+.eco{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ln);border:1px solid var(--ln)}
+.eco div{background:var(--bk);padding:24px}.eco ol{list-style:none;margin-top:14px;display:grid;gap:0}
+.eco li{font-weight:800;font-size:13px;letter-spacing:.1em;padding:8px 0 8px 20px;border-left:1px solid var(--ln);position:relative}
+.eco li:before{content:"";position:absolute;left:-4px;top:50%;width:7px;height:7px;background:var(--bk);border:1px solid var(--wh);transform:translateY(-50%)}
+.eco li.hl{color:var(--rd)}.eco li.hl:before{background:var(--rd);border-color:var(--rd)}
+@media(max-width:860px){.eco{grid-template-columns:1fr}}
+/* grupo */
+.grp .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,5vw,80px);align-items:center}
+.grp h2{font-size:clamp(52px,10vw,150px);margin:10px 0 20px}.grp p{color:var(--mut);max-width:460px;margin-bottom:28px}
+.grp .frame{aspect-ratio:1;max-width:420px;justify-self:end;width:100%}.grp .frame img{object-position:50% 0;transform:scale(1.15);animation:none}
+@media(max-width:860px){.grp .wrap{grid-template-columns:1fr}.grp .frame{justify-self:start;max-height:300px;aspect-ratio:16/10}.grp .frame img{object-position:50% 12%}}
+/* redes */
+.soc{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ln);border:1px solid var(--ln);margin-top:28px}
+.soc a{background:var(--bk);padding:22px;font-weight:800;letter-spacing:.1em;font-size:13px;text-transform:uppercase;display:flex;justify-content:space-between;transition:.25s}
+.soc a:hover{background:var(--rd)}.soc a[href="#"]{opacity:.35;pointer-events:none}
+@media(max-width:700px){.soc{grid-template-columns:1fr 1fr}}
+/* footer */
+footer{padding-block:48px 32px}.ft{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;margin-bottom:32px}
+.ft .big{font-family:var(--serif);font-size:clamp(36px,6vw,80px);font-weight:900;line-height:1}.ft ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 24px;align-content:start}
+.ft li a{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}.ft li a:hover{color:var(--rd)}
+.aff{font-size:12px;color:var(--mut);max-width:680px;border-top:1px solid var(--ln);padding-top:20px}
+@media(max-width:700px){.ft{grid-template-columns:1fr}}
+/* mobile refinements */
+@media(max-width:860px){
+ section{padding-block:56px}
+ .hero h1{font-size:clamp(38px,12vw,84px);margin-bottom:20px}
+ .hero p.lead{margin-bottom:22px}
+ .sh{margin-bottom:24px}.sh h2{font-size:clamp(38px,12vw,72px)}
+ .sh p{max-width:none}
+ .pedir h2,.grp h2{font-size:clamp(46px,15vw,96px)}
+ .pedir p.lead{font-size:18px}
+ .btn{padding:16px 22px;min-height:50px}
+ .grp .btn,.hero .btn{width:100%;justify-content:center}
+ .cat:after{display:none}
+ .cat h3{font-size:clamp(28px,9vw,44px)}
+ .soc a{padding:20px 16px;font-size:12px;min-height:60px;align-items:center}
+ .eco div{padding:20px}
+ .ft .big{font-size:clamp(34px,11vw,56px)}
+ nav{max-height:calc(100dvh - 64px);overflow:auto}
+}
+@media(max-width:520px){
+ .sb input{padding:17px 14px}.sb button{padding:0 16px;font-size:11px}
+ .tags{gap:12px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .card{min-width:0}
+ .cb{padding:12px 10px}.cb h3{font-size:13px}
+ .card .btn{font-size:10px;letter-spacing:.06em;padding:12px 6px;min-height:44px}
+ .bd span{font-size:10px;padding:3px 6px}
+ .fl{gap:6px}.chip{padding:10px 12px;font-size:10px}
+ .sel{gap:6px}.sel select{font-size:12px;padding:10px 8px}
+ .frame{max-height:300px}
+}
+@media(max-width:400px){.sb button span{display:none}.sb .si{display:block}.sb button{padding:0 18px}}
+@media(max-width:360px){.logo{font-size:13px;letter-spacing:.08em}.hd{gap:8px}.hd-r{gap:6px}}
+header{padding-top:env(safe-area-inset-top)}
+footer{padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+/* minimal */
+section{padding-block:clamp(40px,7vw,88px)}
+#cnt{display:none}
+.sh{margin-bottom:24px}.sh p{display:none}#achados .sh p{display:block}
+.adv{margin-bottom:28px}.adv summary{display:inline-block;list-style:none;cursor:pointer}.adv summary::-webkit-details-marker{display:none}.adv[open] summary{background:var(--wh);color:var(--bk)}
+.adv .sel{margin:12px 0 0}
+.cat{min-height:140px;justify-content:flex-end}.cat h3{margin:0}
+.eco-s{padding-block:28px}.eco-s p{line-height:2.1;letter-spacing:.14em}
+.ft .big{font-size:clamp(28px,4vw,48px)}
+@media(max-width:860px){.frame,.pedir .pimg,.empty img{display:none}.hero .wrap{padding-top:28px}.cat{min-height:96px;padding:18px 16px}.pedir .wrap,.grp .wrap{gap:24px}}
+/* calm: tipografia menor e mais respiro */
+:root{--pad:clamp(24px,6vw,80px)}
+body{font-size:15px;line-height:1.6}
+section{padding-block:clamp(72px,11vw,150px)}
+.hero .wrap{padding-block:clamp(48px,8vw,112px) 0;gap:clamp(32px,6vw,96px)}
+.hero h1{font-size:clamp(34px,6vw,88px);line-height:1.04}
+.sh{margin-bottom:clamp(32px,5vw,56px)}
+.sh h2{font-size:clamp(28px,4.2vw,56px);line-height:1.06}
+.pedir h2,.grp h2{font-size:clamp(34px,5.4vw,72px);line-height:1.04;margin-block:14px 20px}
+.pedir p.lead{font-size:clamp(16px,1.6vw,20px)}
+.cat{padding:32px 28px;min-height:150px}.cat h3{font-size:clamp(22px,2.4vw,32px)}
+.ft .big{font-size:clamp(24px,3vw,36px)}
+.ft{gap:40px;margin-bottom:48px}footer{padding-block:72px 40px}
+.fl{margin-bottom:24px}.adv{margin-bottom:40px}
+.sb input{padding:18px}
+.grid{gap:clamp(12px,2vw,24px);background:none;border:0;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr))}
+.card{border:1px solid var(--ln)}.cb{padding:16px;gap:10px}
+form{gap:32px 28px}
+.soc a{padding:26px 22px}.eco-s{padding-block:40px}
+.sh .btn{padding:12px 18px;font-size:11px}
+.grp p{margin-bottom:32px}
+/* salvos */
+.sv{position:absolute;top:10px;right:10px;z-index:3;width:38px;height:38px;display:grid;place-items:center;background:rgba(8,8,8,.75);border:1px solid var(--ln);color:var(--wh);cursor:pointer;transition:.2s}
+.sv svg{fill:none}.sv:hover{border-color:var(--rd);color:var(--rd)}.sv.on{color:var(--rd)}.sv.on svg{fill:currentColor}
+.ls{border:1px solid var(--ln);padding:clamp(16px,3vw,28px);margin-bottom:20px}
+.lh{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
+.lh h3{font-family:var(--sans);font-size:18px;font-weight:800;letter-spacing:0}.lh small,.li small{color:var(--mut);font-weight:700}
+.lg{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px}
+.lr{display:flex;align-items:center;gap:10px;border:1px solid var(--ln);padding:8px;min-width:0}
+.lr a{display:flex;gap:12px;align-items:center;flex:1;min-width:0}.lr img{width:56px;height:56px;object-fit:cover;background:var(--wh2);flex:none}
+.lr span{display:grid;font-size:13px;font-weight:700;min-width:0}.lr span b{color:var(--rd);font-size:14px}
+.lr button{background:none;border:0;cursor:pointer;color:var(--mut);width:36px;height:36px;flex:none}.lr button:hover{color:var(--rd)}
+.md{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.7);display:grid;place-items:center;padding:20px}.md[hidden]{display:none}
+.mdb{background:var(--bk2);border:1px solid var(--ln);width:min(100%,440px);padding:28px;position:relative;max-height:90dvh;overflow:auto}
+.mdb h3{font-family:var(--sans);font-size:18px;font-weight:800;margin-bottom:20px;letter-spacing:0}.mdx{position:absolute;top:12px;right:12px;width:38px;height:38px}
+.li{display:flex;justify-content:space-between;width:100%;background:none;border:1px solid var(--ln);padding:14px;margin-bottom:8px;cursor:pointer;font-weight:700;min-height:48px}.li:hover{border-color:var(--rd)}
+.mdn{display:grid;gap:12px;margin-top:16px}.mdn input{background:var(--bk);border:1px solid var(--ln);padding:14px;outline:0;font-size:16px}.mdn input:focus{border-color:var(--rd)}
+.off{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:90;background:var(--wh);color:var(--bk);padding:14px 18px;font-size:13px;font-weight:700;text-align:center}.off[hidden]{display:none}.off a{text-decoration:underline;color:var(--rd)}
+@media(max-width:860px){
+ section{padding-block:64px}
+ .hero h1{font-size:clamp(30px,9vw,52px)}
+ .sh h2{font-size:clamp(26px,8vw,38px)}
+ .pedir h2,.grp h2{font-size:clamp(30px,9vw,46px)}
+ .cat{padding:22px 18px;min-height:104px}.cat h3{font-size:clamp(20px,6vw,26px)}
+ .ft .big{font-size:26px}
+ .sel{gap:10px}form{gap:26px}
+ .md{place-items:end center;padding:0}.mdb{width:100%;border-width:1px 0 0}
+}
+@media(max-width:520px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cb{padding:12px}.sv{width:34px;height:34px;top:6px;right:6px}.bd{top:6px;left:6px}}
+@media(max-width:359px){.grid{grid-template-columns:1fr}}
+@media(min-width:1700px){.wrap{max-width:1560px}}
+/* motion */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
-<body>
+<body id="topo">
+<header><div class="wrap hd">
+ <a class="logo" href="#topo">🐼 PZ <i>/</i> OFERTAS</a>
+ <nav id="nav"><a href="#achados">Achados</a><a href="#categorias">Categorias</a><a href="#salvos">Salvos</a><a href="#pedir">Pedir um achado</a><a href="#grupo">Grupo</a></nav>
+ <div class="hd-r">
+  <button class="btn" id="install" style="display:none;padding:10px 14px;font-size:11px">Instalar</button>
+  <button class="ib" id="sbtn" aria-label="Buscar"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6"/><path d="m13 13 4 4"/></svg></button>
+  <button class="ib" id="burger" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" stroke="currentColor" stroke-width="2"><path d="M2 5h14M2 13h14"/></svg></button>
+ </div>
+</div></header>
 
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#topo">
-      <span aria-hidden="true">🐼</span> pz ofertas
-    </a>
-    <nav class="nav-links" aria-label="Navegação principal">
-      <a href="#achados">Achados</a>
-      <a href="#salvos">Salvos</a>
-      <a href="#pedir">Pedir um achado</a>
-      <a href="#grupo">Grupo</a>
-      <a href="#redes">Redes sociais</a>
-    </nav>
-    <div class="nav-cta">
-      <a class="btn btn-primary" href="#grupo">Entrar no grupo</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F6F3EC" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-</header>
+<main>
+<div class="hero"><div class="wrap">
+  <div>
+  <h1 class="rv">A PZ acha <em>primeiro.</em><br>Você só clica.</h1>
+    <form class="sb rv" id="hs" role="search" style="display:flex"><input id="q" type="search" placeholder="Busque por moletom, mouse, LED, livro..." aria-label="Buscar produtos" autocomplete="off"><button type="submit" aria-label="Buscar"><span>Buscar</span><svg class="si" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="8" cy="8" r="6"/><path d="m13 13 4 4"/></svg></button></form>
+  <div style="height:clamp(32px,6vw,72px)"></div>
+ </div>
+ <div class="frame rv"><img src="assets/mascot/panda-celular.webp" alt="Panda mascote da PZ olhando o celular" width="900" height="900" fetchpriority="high"></div>
+</div></div>
 
-<div class="mobile-panel" id="mobilePanel">
-  <div class="mobile-panel-head">
-    <span class="brand">🐼 pz ofertas</span>
-    <button id="menuClose" aria-label="Fechar menu" style="background:none;">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F6F3EC" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
-    </button>
-  </div>
-  <a href="#achados">Achados</a>
-  <a href="#salvos">Salvos</a>
-  <a href="#pedir">Pedir um achado</a>
-  <a href="#grupo">Grupo</a>
-  <a href="#redes">Redes sociais</a>
-</div>
+<section id="achados"><div class="wrap">
+ <div class="sh"><div><h2>ACHADOS<br>DO <em>DIA</em></h2></div><p>Garimpados, filtrados e prontos para você.</p></div>
+ <div class="fl" id="chips"></div>
+ <details class="adv"><summary class="chip">Filtros e ordem</summary><div class="sel">
+  <select id="fLoja" aria-label="Loja"><option value="">Todas as lojas</option></select>
+  <select id="fPreco" aria-label="Faixa de preço"><option value="">Qualquer preço</option><option value="0-50">Até R$ 50</option><option value="50-100">R$ 50 a 100</option><option value="100-250">R$ 100 a 250</option><option value="250-99999">Acima de R$ 250</option></select>
+  <select id="fDesc" aria-label="Desconto"><option value="0">Qualquer desconto</option><option value="10">10% ou mais</option><option value="30">30% ou mais</option><option value="50">50% ou mais</option></select>
+  <select id="fOrd" aria-label="Ordenar"><option value="new">Mais recentes</option><option value="disc">Maior desconto</option><option value="asc">Menor preço</option><option value="desc">Maior preço</option></select>
+ </div></details>
+ <p class="micro cnt" id="cnt" aria-live="polite"></p>
+ <div class="grid" id="grid"></div>
+ <div class="more"><button class="btn ghost" id="more" style="display:none">Ver mais achados</button></div>
+</div></section>
 
-<main id="topo">
+<section id="salvos"><div class="wrap">
+ <div class="sh"><div><h2>SAL<em>VOS</em></h2></div><button class="btn ghost" id="newList">+ Nova lista</button></div>
+ <p class="micro" style="margin-bottom:28px;text-transform:none;letter-spacing:.02em;font-size:14px;font-weight:500">Guarde achados em listas com o nome que quiser. Fica salvo só neste aparelho, sem login.</p>
+ <div id="lists"></div>
+</div></section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-content">
-      <span class="eyebrow-tag">🔥 Achados de hoje atualizados</span>
-      <h1>A PZ acha primeiro. <span class="accent">Você só clica.</span></h1>
-      <p class="lead">Moda, quarto, tech, games e uma seleção de livros — garimpados, filtrados e com o link na mão. Menos tempo procurando, mais tempo aproveitando o preço bom.</p>
-      <div class="search-row" role="search">
-        <input type="text" id="searchInput" placeholder="Busque por moletom, mouse, LED, livro...">
-        <button type="button" id="searchBtn">Buscar</button>
-      </div>
-      <div class="hero-actions" style="margin-top:20px;">
-        <a class="btn btn-ghost" href="#pedir">Pedir um achado específico</a>
-        <button class="btn btn-primary" id="btnInstalar" style="display:none;">📲 Instalar o app</button>
-      </div>
-    </div>
-  </section>
+<section id="categorias"><div class="wrap">
+ <div class="sh"><div><h2>CATE<em>GORIAS</em></h2></div></div>
+ <div class="cats rv" id="cats"></div>
+</div></section>
 
-  <!-- ACHADOS / CATEGORIAS -->
-  <section id="achados">
-    <div class="wrap">
-      <div class="paw-divider">
-        <span class="emoji">🐼</span>
-        <span>Curadoria PZ</span>
-      </div>
-      <div class="section-head">
-        <div>
-          <h2 id="categorias">Achados do dia</h2>
-          <p>Tudo aqui passou pelo filtro: preço bom, avaliação ok e link conferido. Toque numa categoria para refinar.</p>
-        </div>
-      </div>
-      <div class="chip-row" id="chipRow" role="tablist" aria-label="Filtrar por categoria"></div>
-      <div class="grid" id="productGrid"></div>
-    </div>
-  </section>
+<section class="pedir" id="pedir"><div class="wrap">
+ <div>
+  <span class="micro">Não encontrou?</span>
+  <h2>MANDA<br>PRA <em>PZ.</em></h2>
+  <p class="lead">Você procura.<br>A PZ garimpa.</p>
+  <img class="pimg" src="assets/mascot/panda-sentado.webp" alt="Panda sentado esperando seu pedido" loading="lazy" width="900" height="720">
+ </div>
+ <div>
+  <form id="pf" novalidate>
+   <label>Nome<input name="nome" required autocomplete="name"></label>
+   <label>@Instagram ou contato<input name="contato" required></label>
+   <label class="f">O que você está procurando?<input id="pq" name="produto" required></label>
+   <label>Categoria<select name="categoria"><option>Moda</option><option>Quarto</option><option>Tech</option><option>Games</option><option>Livros</option><option>Outro</option></select></label>
+   <label>Faixa de preço<select name="faixa"><option>Até R$ 50</option><option>R$ 50 a 100</option><option>R$ 100 a 250</option><option>Acima de R$ 250</option></select></label>
+   <input name="site" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+   <p id="err" class="f" role="alert"></p><a id="wa" class="f micro" style="display:none;text-decoration:underline" target="_blank" rel="noopener">Enviar pelo WhatsApp mesmo assim →</a>
+   <button class="btn f" type="submit">Enviar pedido →</button>
+  </form>
+  <div id="ok"><h3>Pedido recebido.</h3><p>A PZ vai colocar esse pedido no radar.</p></div>
+ </div>
+</div></section>
 
-  <!-- SALVOS / PLAYLISTS -->
-  <section id="salvos" class="on-light">
-    <div class="wrap">
-      <div class="paw-divider" style="color:var(--black);opacity:.7;">
-        <span class="emoji">🔖</span>
-        <span>Suas listas</span>
-      </div>
-      <div class="section-head">
-        <div>
-          <h2>Salvos</h2>
-          <p>Guarde achados em listas com o nome que quiser — tipo "Streetwear" ou "Quarto novo". Fica salvo só neste aparelho, sem precisar de login.</p>
-        </div>
-        <button class="btn btn-ghost-dark" id="btnNovaListaSalvos">+ Nova lista</button>
-      </div>
-      <div id="salvosConteudo"></div>
-    </div>
-  </section>
+<section class="eco-s"><div class="wrap"><p class="micro">Conteúdo <b>→</b> PZ Ofertas <b>→</b> Produto <b>→</b> Compra<br>Conteúdo <b>→</b> PZ Ofertas <b>→</b> Grupo <b>→</b> Oferta<br>Pedido <b>→</b> PZ garimpa <b>→</b> Produto</p></div></section>
 
-  <!-- PEDIR UM ACHADO -->
-  <section id="pedir">
-    <div class="wrap">
-      <div class="peca">
-        <div class="peca-grid">
-          <div>
-            <h2>Não achou o que procurava?</h2>
-            <p>Descreve o que você quer — a PZ garimpa e te avisa quando encontrar, direto no seu WhatsApp ou nas redes. Sem compromisso.</p>
-          </div>
-          <form id="pedirForm">
-            <label for="pedirNome">Seu nome ou @ das redes</label>
-            <input type="text" id="pedirNome" placeholder="Ex: @seuinsta" required>
-            <label for="pedirItem">O que você está procurando?</label>
-            <textarea id="pedirItem" placeholder="Ex: mouse sem fio silencioso até R$60" required></textarea>
-            <button type="submit" class="btn btn-primary">Enviar pedido pelo WhatsApp</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="grp" id="grupo"><div class="wrap">
+ <div>
+  
+  <h2 class="rv">ENTRA NO <em>GRUPO.</em></h2>
+  <p>Cupons, quedas de preço e achados selecionados.<br>Menos spam. Mais coisa que realmente vale a pena.</p>
+  <a class="btn" href="https://t.me/pzofertas" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.1 13.5 1.2 12c-1.1-.3-1.1-1 .2-1.6L20.600 3c.9-.3 1.700.2 1.300 1.300Z"/></svg>Entrar no Telegram →</a>
+ </div>
+ <div class="frame rv"><img src="assets/mascot/panda-celular.webp" alt="Panda da PZ com o celular na mão" loading="lazy" width="900" height="900"></div>
+</div></section>
 
-  <!-- GRUPO -->
-  <section id="grupo">
-    <div class="wrap">
-      <div class="grupo">
-        <span class="emoji-badge" aria-hidden="true">🐼🔥</span>
-        <div>
-          <h3>PZ Ofertas • Grupo de ofertas</h3>
-          <p>Cupons, quedas de preço e achados selecionados direto no seu Telegram. Sem spam — só o que realmente vale a pena.</p>
-        </div>
-        <a class="btn btn-primary" href="https://t.me/pzofertas" id="grupoLink" target="_blank" rel="noopener">Entrar no grupo</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- REDES SOCIAIS -->
-  <section id="redes">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <h2>Segue a PZ nas redes</h2>
-          <p>Achadinhos em vídeo, comparações e os lançamentos em primeira mão — @pzofertas em todo lugar.</p>
-        </div>
-      </div>
-      <div class="social-grid">
-        <a class="social-card" href="https://www.tiktok.com/@pzofertas" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="#17160F"><path d="M16.6 5.82c-1.02-.9-1.65-2.2-1.65-3.65h-3.07v14.3c0 1.6-1.3 2.9-2.9 2.9a2.9 2.9 0 1 1 0-5.8c.28 0 .55.04.8.11V10.6a6 6 0 1 0 5.17 5.94V9.35a8.1 8.1 0 0 0 4.65 1.46V7.75c-1.09 0-2.1-.34-2.99-.9z"/></svg>
-          <span class="handle">@pzofertas</span>
-          <span class="platform">TikTok</span>
-        </a>
-        <a class="social-card" href="https://www.instagram.com/pzofertas" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#17160F" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
-          <span class="handle">@pzofertas</span>
-          <span class="platform">Instagram</span>
-        </a>
-        <a class="social-card" href="https://www.youtube.com/@pzofertas" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="#17160F"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="#17160F" stroke-width="1.8"/><path d="M10 9.5v5l4.5-2.5z"/></svg>
-          <span class="handle">@pzofertas</span>
-          <span class="platform">YouTube Shorts</span>
-        </a>
-        <a class="social-card" href="https://www.pinterest.com/pzofertas" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#17160F" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.5 18c1-3 1.6-5.4 2.2-7.8.4-1.6 2.9-1.5 3 .2.1 1.4-.6 3.2-1 4.6-.3 1.2.6 2.1 1.8 1.7 1.9-.6 3-2.8 3-4.9 0-2.9-2.4-5.1-5.6-5.1-3.8 0-6 2.7-6 5.6 0 1.1.4 2.2 1.1 2.9"/></svg>
-          <span class="handle">@pzofertas</span>
-          <span class="platform">Pinterest</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRANSPARÊNCIA -->
-  <section style="padding-top:0;">
-    <div class="wrap">
-      <div class="disclaimer">
-        <span class="emoji">🐼</span>
-        <span>Alguns links desta página são de afiliado: se você comprar por eles, a PZ Ofertas pode receber uma pequena comissão, sem nenhum custo a mais para você. Isso é o que mantém a curadoria no ar — e não muda o que a gente indica.</span>
-      </div>
-    </div>
-  </section>
-
+<section id="redes"><div class="wrap">
+ <div class="sh"><div><h2>SEGUE<br>A <em>PZ.</em></h2></div></div>
+ <!-- Troque os href. Links com href="#" ficam apagados e sem clique. -->
+ <div class="soc rv">
+  <a href="https://www.instagram.com/pzofertas" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+  <a href="https://www.tiktok.com/@pzofertas" target="_blank" rel="noopener">TikTok <span>↗</span></a>
+  <a href="https://www.youtube.com/@pzofertas" target="_blank" rel="noopener">YouTube <span>↗</span></a>
+  <a href="https://www.pinterest.com/pzofertas" target="_blank" rel="noopener">Pinterest <span>↗</span></a>
+ </div>
+</div></section>
 </main>
 
-<footer>
-  <div class="wrap foot-row">
-    <span class="foot-brand">🐼 pz ofertas</span>
-    <div class="foot-links">
-      <a href="#achados">Achados</a>
-      <a href="#pedir">Pedir um achado</a>
-      <a href="#grupo">Grupo</a>
-      <a href="#redes">Redes sociais</a>
-    </div>
-    <span style="font-size:.82rem;color:#8b876f;">© 2026 PZ Ofertas · feito com curadoria e café</span>
-  </div>
-</footer>
+<footer><div class="wrap">
+ <div class="ft"><div class="big">PZ OFERTAS<br><em style="font-size:.4em;font-weight:500">A PZ acha primeiro. Você só clica.</em></div>
+ <ul><li><a href="#achados">Achados</a></li><li><a href="#categorias">Categorias</a></li><li><a href="#pedir">Pedir um achado</a></li><li><a href="#grupo">Grupo</a></li><li><a href="#redes">Redes sociais</a></li></ul></div>
+ <p class="aff">Alguns links podem ser links de afiliado. A PZ pode receber uma comissão quando uma compra é realizada através deles, sem custo adicional para você.</p>
+ <p class="micro" style="margin-top:16px">© <span id="yr">2026</span> PZ Ofertas</p>
+</div></footer>
 
-<div class="toast" id="toast"></div>
-
-<!-- MODAL: salvar em uma lista -->
-<div class="modal-overlay" id="modalSalvar" aria-hidden="true">
-  <div class="modal-sheet">
-    <div class="modal-head">
-      <h3>🔖 Salvar em uma lista</h3>
-      <button class="modal-close" id="modalSalvarFechar" aria-label="Fechar">✕</button>
-    </div>
-    <div class="modal-lista-playlists" id="listaPlaylistsModal"></div>
-    <form class="modal-nova-lista" id="formNovaListaModal">
-      <input type="text" id="inputNovaListaModal" placeholder="Nome da nova lista (ex: Streetwear)" required maxlength="40">
-      <button type="submit" class="btn btn-primary">Criar e salvar</button>
-    </form>
-  </div>
-</div>
-
-<!-- AVISO: sem internet -->
-<div class="offline-banner" id="offlineBanner">
-  <span>📡 Você está offline agora.</span>
-  <a class="btn btn-primary" href="game.html">🎮 Jogar para passar o tempo sem internet no estilo PZ</a>
-</div>
-
+<div class="md" id="md" hidden role="dialog" aria-modal="true" aria-labelledby="mdt"><div class="mdb">
+ <button class="ib mdx" id="mdx" aria-label="Fechar">✕</button>
+ <h3 id="mdt">Salvar em uma lista</h3>
+ <div id="mdl"></div>
+ <div class="mdn"><input id="mdi" placeholder="Nome da nova lista" maxlength="40" aria-label="Nome da nova lista"><button class="btn" id="mdc">Criar e salvar</button></div>
+</div></div>
+<div class="off" id="off" hidden>Você está offline agora. <a href="/game.html">Jogar para passar o tempo →</a></div>
 <script>
-/* =========================================================
-   BANCO DE PRODUTOS — agora vem do arquivo products.json,
-   que fica na mesma pasta deste index.html. Editar o catálogo
-   é só editar o products.json (direto pelo GitHub, sem mexer
-   neste arquivo).
-   ========================================================= */
-let PRODUTOS = [];
-const CATEGORIAS = ["Todos","Moda","Quarto","Tech & Games","Livros","Ofertas"];
+/* ============ CONFIG: ajuste aqui ============ */
+const PRODUCTS_URL='products.json';       // mesma fonte de hoje (o bot do Telegram lê o mesmo arquivo)
+const WHATS_FALLBACK='5511959852861';     // usado só se /api/pedidos ainda não existir
+const ORDER_ENDPOINT='/api/pedidos';      // Function que recebe o formulário (POST JSON)
+/* Mapeia os campos do SEU products.json. Cada lista é testada em ordem. */
+const F={ /* schema real: id, nome, categoria, loja, preco, precoRef, cupom, imagem, url, oferta */
+ id:['id'],name:['nome'],price:['preco'],old:['precoRef'],disc:[],store:['loja'],cat:['categoria'],
+ img:['imagem'],url:['url'],coupon:['cupom'],date:['data','date','created_at'],flag:['oferta']};
+const CATS=[['moda','Moda','Roupas, tênis e acessórios.'],['quarto','Quarto','Decoração, iluminação e setup.'],['tech','Tech','Gadgets e acessórios.'],['games','Games','Periféricos e produtos gamer.'],['livros','Livros','Seleção pequena e contextual.'],['ofertas','Ofertas','Descontos e oportunidades.']];
+/* =============================================== */
+const $=s=>document.querySelector(s),pick=(o,k)=>{for(const n of k)if(o[n]!=null&&o[n]!=='')return o[n]};
+const num=v=>{if(v==null)return null;if(typeof v==='number')return v;const s=String(v).replace(/[^\d,.-]/g,'');if(!s)return null;const n=s.includes(',')?parseFloat(s.replace(/\./g,'').replace(',','.')):parseFloat(s);return isNaN(n)?null:n};
+const brl=n=>n==null?'':n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+let ALL=[],st={cat:'',q:'',loja:'',preco:'',desc:0,ord:'new',n:12};
 
-const grid = document.getElementById('productGrid');
-const chipRow = document.getElementById('chipRow');
-let categoriaAtiva = "Todos";
-let termoBusca = "";
-
-async function carregarProdutos(){
-  try{
-    const resp = await fetch('products.json', {cache:'no-store'});
-    PRODUTOS = await resp.json();
-  }catch(err){
-    grid.innerHTML = '<div class="empty-state">Não consegui carregar o catálogo agora — se estiver sem internet, dá pra <a href="game.html" style="text-decoration:underline;">jogar enquanto isso 🎮</a>.</div>';
-    console.error('Erro ao carregar products.json', err);
-    return;
-  }
-  renderChips();
-  renderGrid();
-  renderizarSalvos();
+function adapt(p,i){const price=num(pick(p,F.price)),old=num(pick(p,F.old));let d=num(pick(p,F.disc));
+ if(!d&&old&&price&&old>price)d=Math.round((1-price/old)*100);
+ const dt=Date.parse(pick(p,F.date));
+ return{id:pick(p,F.id)??i,name:pick(p,F.name)||'Produto',price,old,disc:d||0,store:pick(p,F.store)||'',cat:pick(p,F.cat)||'',img:pick(p,F.img)||'',url:pick(p,F.url)||'#',coupon:pick(p,F.coupon),flag:!!pick(p,F.flag),t:isNaN(dt)?(Number(p.id)||-i):dt}}
+async function load(){
+ $('#grid').innerHTML='<div class="sk"></div>'.repeat(8);
+ try{const r=await fetch(PRODUCTS_URL,{cache:'no-cache'});if(!r.ok)throw 0;let j=await r.json();
+  if(!Array.isArray(j))j=j.products||j.produtos||j.items||Object.values(j);
+  ALL=j.map(adapt);
+ }catch(e){ALL=[];$('#grid').innerHTML='<div class="empty"><h3>Falha ao carregar.</h3><p>Tente de novo em instantes.</p></div>';$('#cnt').textContent='';return}
+ buildFilters();render();drawLists();
 }
-
-/* =========================================================
-   SALVOS / PLAYLISTS — guardado no localStorage do aparelho,
-   sem login e sem servidor. Cada playlist tem um nome livre
-   (ex: "Streetwear") e uma lista de IDs de produtos.
-   ========================================================= */
-const CHAVE_PLAYLISTS = 'pzPlaylists';
-
-function carregarPlaylists(){
-  try{
-    const bruto = localStorage.getItem(CHAVE_PLAYLISTS);
-    return bruto ? JSON.parse(bruto) : [];
-  }catch(e){ return []; }
+function inCat(p,c){if(!c)return true;if(c==='ofertas')return p.disc>0||!!p.coupon||p.flag;
+ const g=/game|gamer|controle|joystick|headset|mousepad|console|teclado|mouse/.test(norm(p.name)),k=norm(p.cat);
+ if(c==='games')return k.includes('game')&&g;if(c==='tech')return k.includes('tech')&&!g;return k.includes(c)}
+function buildFilters(){
+ const cs=[['','Todos'],...CATS.map(c=>[c[0],c[1]])];
+ $('#chips').innerHTML=cs.map(c=>`<button class="chip${st.cat===c[0]?' on':''}" data-c="${c[0]}">${c[1]}</button>`).join('');
+ const lojas=[...new Set(ALL.map(p=>p.store).filter(Boolean))].sort();
+ $('#fLoja').innerHTML='<option value="">Todas as lojas</option>'+lojas.map(l=>`<option>${esc(l)}</option>`).join('');
 }
-function salvarPlaylists(){
-  try{ localStorage.setItem(CHAVE_PLAYLISTS, JSON.stringify(playlists)); }catch(e){}
+function render(){
+ let a=ALL.filter(p=>inCat(p,st.cat)&&(!st.loja||p.store===st.loja)&&p.disc>=st.desc&&(!st.q||norm([p.name,p.cat,p.store].join(' ')).includes(norm(st.q))));
+ if(st.preco){const[lo,hi]=st.preco.split('-').map(Number);a=a.filter(p=>p.price!=null&&p.price>=lo&&p.price<hi)}
+ const o={new:(x,y)=>y.t-x.t,disc:(x,y)=>y.disc-x.disc,asc:(x,y)=>(x.price??1e9)-(y.price??1e9),desc:(x,y)=>(y.price??0)-(x.price??0)};
+ a.sort(o[st.ord]);
+ $('#cnt').textContent=a.length+(a.length===1?' achado':' achados');
+ $('#chips').querySelectorAll('.chip').forEach(b=>b.classList.toggle('on',b.dataset.c===st.cat));
+ const g=$('#grid');
+ if(!a.length){g.innerHTML=`<div class="empty"><img src="assets/mascot/panda-sentado.webp" alt="Panda triste, sem resultados"><h3>Não encontramos esse achado.</h3><p>Manda pra PZ que ela garimpa.</p><a class="btn" href="#pedir" data-ask>Pedir um achado →</a></div>`;$('#more').style.display='none';return}
+ g.innerHTML=a.slice(0,st.n).map(p=>`<article class="card rv"><a href="${esc(p.url)}" target="_blank" rel="noopener sponsored nofollow" class="im" aria-label="${esc(p.name)}">${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" onerror="this.style.opacity=0">`:''}</a>
+ <button class="sv${isSaved(p.id)?' on':''}" data-id="${esc(p.id)}" aria-label="Salvar em uma lista"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4-6 4z"/></svg></button>
+ <div class="bd">${p.disc?`<span>-${p.disc}%</span>`:''}${p.coupon?'<span class="c">CUPOM</span>':''}</div>
+ <div class="cb"><span class="micro">${esc(p.store)}</span><h3>${esc(p.name)}</h3>
+ <div class="pr"><b>${brl(p.price)}</b>${p.old&&p.old>p.price?`<s>${brl(p.old)}</s>`:''}</div>
+ <a class="btn" href="${esc(p.url)}" target="_blank" rel="noopener sponsored nofollow">Ver oferta</a></div></article>`).join('');
+ $('#more').style.display=a.length>st.n?'':'none';reveal();
 }
-
-let playlists = carregarPlaylists();
-let playlistAbertaId = null; // null = mostra a grade de listas; senão mostra os itens dela
-let produtoIdModalAtual = null;
-
-function produtoEstaSalvo(produtoId){
-  return playlists.some(p => p.produtoIds.includes(produtoId));
-}
-function criarPlaylist(nome){
-  const nova = { id: 'pl_' + Date.now(), nome: nome.trim().slice(0,40), produtoIds: [] };
-  playlists.push(nova);
-  salvarPlaylists();
-  return nova;
-}
-function renomearPlaylist(id, novoNome){
-  const p = playlists.find(x => x.id === id);
-  if(p){ p.nome = novoNome.trim().slice(0,40); salvarPlaylists(); }
-}
-function excluirPlaylist(id){
-  playlists = playlists.filter(x => x.id !== id);
-  salvarPlaylists();
-}
-function alternarProdutoNaPlaylist(playlistId, produtoId){
-  const p = playlists.find(x => x.id === playlistId);
-  if(!p) return;
-  const idx = p.produtoIds.indexOf(produtoId);
-  if(idx === -1) p.produtoIds.push(produtoId); else p.produtoIds.splice(idx,1);
-  salvarPlaylists();
-}
-
-/* ---------- modal "salvar em uma lista" ---------- */
-const modalSalvar = document.getElementById('modalSalvar');
-
-function abrirModalSalvar(produtoId){
-  produtoIdModalAtual = produtoId;
-  renderizarListaPlaylistsModal();
-  modalSalvar.classList.add('aberto');
-  modalSalvar.setAttribute('aria-hidden','false');
-}
-function fecharModalSalvar(){
-  modalSalvar.classList.remove('aberto');
-  modalSalvar.setAttribute('aria-hidden','true');
-  produtoIdModalAtual = null;
-}
-function renderizarListaPlaylistsModal(){
-  const cont = document.getElementById('listaPlaylistsModal');
-  if(playlists.length === 0){
-    cont.innerHTML = '<p class="modal-vazio">Você ainda não tem nenhuma lista. Cria a primeira aqui embaixo 👇</p>';
-    return;
-  }
-  cont.innerHTML = playlists.map(p => `
-    <label class="playlist-row">
-      <input type="checkbox" data-playlist-id="${p.id}" ${p.produtoIds.includes(produtoIdModalAtual) ? 'checked' : ''}>
-      <span class="playlist-row-nome">${p.nome}</span>
-      <span class="playlist-row-count">${p.produtoIds.length}</span>
-    </label>
-  `).join('');
-}
-
-document.getElementById('listaPlaylistsModal').addEventListener('change', (e)=>{
-  const input = e.target.closest('input[type="checkbox"]');
-  if(!input || produtoIdModalAtual === null) return;
-  alternarProdutoNaPlaylist(input.dataset.playlistId, produtoIdModalAtual);
-  renderizarListaPlaylistsModal();
-  renderGrid();
-  renderizarSalvos();
-});
-
-document.getElementById('formNovaListaModal').addEventListener('submit', (e)=>{
-  e.preventDefault();
-  const input = document.getElementById('inputNovaListaModal');
-  const nome = input.value.trim();
-  if(!nome || produtoIdModalAtual === null) return;
-  const nova = criarPlaylist(nome);
-  alternarProdutoNaPlaylist(nova.id, produtoIdModalAtual);
-  input.value = '';
-  renderizarListaPlaylistsModal();
-  renderGrid();
-  renderizarSalvos();
-  showToast(`Salvo em "${nova.nome}" 🔖`);
-});
-
-document.getElementById('modalSalvarFechar').addEventListener('click', fecharModalSalvar);
-modalSalvar.addEventListener('click', (e)=>{ if(e.target === modalSalvar) fecharModalSalvar(); });
-
-/* ---------- seção Salvos ---------- */
-function renderizarSalvos(){
-  const cont = document.getElementById('salvosConteudo');
-  if(!cont) return;
-
-  if(playlistAbertaId){
-    const p = playlists.find(x => x.id === playlistAbertaId);
-    if(!p){ playlistAbertaId = null; renderizarSalvos(); return; }
-
-    const itens = PRODUTOS.filter(prod => p.produtoIds.includes(prod.id));
-    cont.innerHTML = `
-      <div class="salvos-toolbar">
-        <button class="link-voltar" id="btnVoltarListas">← Todas as listas</button>
-        <div class="salvos-toolbar-acoes">
-          <button class="btn-icone" id="btnRenomearLista" title="Renomear lista" aria-label="Renomear lista">✏️</button>
-          <button class="btn-icone" id="btnExcluirLista" title="Excluir lista" aria-label="Excluir lista">🗑️</button>
-        </div>
-      </div>
-      <h3 class="salvos-titulo-lista">${p.nome} <span class="salvos-count">${itens.length} ${itens.length === 1 ? 'item' : 'itens'}</span></h3>
-      <div class="grid">
-        ${itens.length ? itens.map(criarCardHTML).join('') : '<div class="empty-state">Essa lista ainda está vazia. Toque no 🔖 de um achado pra salvar aqui.</div>'}
-      </div>
-    `;
-    document.getElementById('btnVoltarListas').addEventListener('click', ()=>{ playlistAbertaId = null; renderizarSalvos(); });
-    document.getElementById('btnRenomearLista').addEventListener('click', ()=>{
-      const novoNome = prompt('Novo nome da lista:', p.nome);
-      if(novoNome && novoNome.trim()){ renomearPlaylist(p.id, novoNome); renderizarSalvos(); }
-    });
-    document.getElementById('btnExcluirLista').addEventListener('click', ()=>{
-      if(confirm(`Excluir a lista "${p.nome}"? Os achados continuam no catálogo, só saem dessa lista.`)){
-        excluirPlaylist(p.id);
-        playlistAbertaId = null;
-        renderizarSalvos();
-        renderGrid();
-      }
-    });
-    return;
-  }
-
-  if(playlists.length === 0){
-    cont.innerHTML = '<div class="empty-state">Você ainda não criou nenhuma lista.<br>Toque no ícone 🔖 em qualquer achado, ou em "+ Nova lista" acima.</div>';
-    return;
-  }
-
-  cont.innerHTML = `<div class="playlist-grid">` + playlists.map(p => `
-    <button class="playlist-card" data-playlist-id="${p.id}">
-      <span class="playlist-card-nome">${p.nome}</span>
-      <span class="playlist-card-count">${p.produtoIds.length} ${p.produtoIds.length === 1 ? 'item' : 'itens'}</span>
-    </button>
-  `).join('') + `</div>`;
-
-  cont.querySelectorAll('.playlist-card').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      playlistAbertaId = btn.dataset.playlistId;
-      renderizarSalvos();
-    });
-  });
-}
-
-document.getElementById('btnNovaListaSalvos').addEventListener('click', ()=>{
-  const nome = prompt('Nome da nova lista (ex: Streetwear):');
-  if(nome && nome.trim()){ criarPlaylist(nome); renderizarSalvos(); }
-});
-
-renderizarSalvos();
-
-/* ---------- aviso de offline (com o mini-game) ---------- */
-const offlineBanner = document.getElementById('offlineBanner');
-function atualizarStatusOnline(){
-  if(navigator.onLine){
-    offlineBanner.classList.remove('mostrar');
-  }else{
-    offlineBanner.classList.add('mostrar');
-  }
-}
-window.addEventListener('online', atualizarStatusOnline);
-window.addEventListener('offline', atualizarStatusOnline);
-atualizarStatusOnline();
-
-
-function renderChips(){
-  chipRow.innerHTML = "";
-  CATEGORIAS.forEach(cat=>{
-    const chip = document.createElement('button');
-    chip.className = 'chip';
-    chip.textContent = cat;
-    chip.setAttribute('role','tab');
-    chip.setAttribute('aria-pressed', cat === categoriaAtiva ? 'true' : 'false');
-    chip.addEventListener('click', ()=>{
-      categoriaAtiva = cat;
-      renderChips();
-      renderGrid();
-    });
-    chipRow.appendChild(chip);
-  });
-}
-
-function formatBRL(v){
-  return v.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
-}
-
-const iconeSalvarVazio = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>';
-const iconeSalvarCheio = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>';
-
-// escapa texto pra usar com segurança dentro de HTML/atributos — protege
-// o site mesmo se algum produto no products.json vier com aspas ou
-// caracteres estranhos (link colado torto, nome com símbolo, etc).
-function escaparHTML(s){
-  if (s === null || s === undefined) return "";
-  return String(s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-function criarCardHTML(p){
-  const desconto = p.precoRef ? Math.round(100 - (p.preco/p.precoRef*100)) : null;
-  const salvo = produtoEstaSalvo(p.id);
-  return `
-    <div class="card">
-      <div class="card-photo">
-        ${desconto ? `<span class="tag-badge">🔥 -${desconto}%</span>` : ""}
-        <button class="save-btn ${salvo ? 'is-saved' : ''}" data-save-id="${p.id}" aria-label="Salvar em uma lista">
-          ${salvo ? iconeSalvarCheio : iconeSalvarVazio}
-        </button>
-        <img src="${escaparHTML(p.imagem)}" alt="${escaparHTML(p.nome)}" loading="lazy">
-        <span class="store-badge">${escaparHTML(p.loja)}</span>
-      </div>
-      <div class="card-body">
-        <span class="card-cat">${escaparHTML(p.categoria)}</span>
-        <span class="card-name">${escaparHTML(p.nome)}</span>
-        <div class="price-row">
-          <span class="price-now">${formatBRL(p.preco)}</span>
-          ${p.precoRef ? `<span class="price-old">${formatBRL(p.precoRef)}</span>` : ""}
-        </div>
-        ${p.cupom ? `<span style="font-size:.78rem;color:#6b6857;font-family:'Source Serif 4';">Cupom: <strong>${escaparHTML(p.cupom)}</strong></span>` : ""}
-        <a class="card-cta" href="${escaparHTML(p.url)}" target="_blank" rel="noopener sponsored">Ver oferta</a>
-      </div>
-    </div>
-  `;
-}
-
-function renderGrid(){
-  let lista = PRODUTOS.filter(p=>{
-    const matchCategoria = categoriaAtiva === "Todos"
-      || (categoriaAtiva === "Ofertas" && p.oferta)
-      || p.categoria === categoriaAtiva;
-    const matchBusca = termoBusca === "" || p.nome.toLowerCase().includes(termoBusca);
-    return matchCategoria && matchBusca;
-  });
-
-  if(lista.length === 0){
-    grid.innerHTML = '<div class="empty-state">Nenhum achado por aqui ainda. Tenta outra busca ou <a href="#pedir" style="text-decoration:underline;">peça um achado</a>.</div>';
-    return;
-  }
-
-  grid.innerHTML = lista.map(criarCardHTML).join('');
-}
-
-// um clique só cuida do botão de salvar em qualquer grade de produtos (achados ou salvos)
-document.addEventListener('click', (e)=>{
-  const btn = e.target.closest('.save-btn');
-  if(!btn) return;
-  abrirModalSalvar(Number(btn.dataset.saveId));
-});
-
-
-document.getElementById('searchBtn').addEventListener('click', ()=>{
-  termoBusca = document.getElementById('searchInput').value.trim().toLowerCase();
-  renderGrid();
-  document.getElementById('achados').scrollIntoView({behavior:'smooth'});
-});
-document.getElementById('searchInput').addEventListener('keydown', (e)=>{
-  if(e.key === 'Enter'){
-    termoBusca = e.target.value.trim().toLowerCase();
-    renderGrid();
-    document.getElementById('achados').scrollIntoView({behavior:'smooth'});
-  }
-});
-
-carregarProdutos();
-
-/* ---------- Pedir um achado -> abre WhatsApp com mensagem pronta ---------- */
-const NUMERO_WHATSAPP = "5511999999999"; // troque pelo número real do grupo/atendimento da PZ
-document.getElementById('pedirForm').addEventListener('submit', (e)=>{
-  e.preventDefault();
-  const nome = document.getElementById('pedirNome').value.trim();
-  const item = document.getElementById('pedirItem').value.trim();
-  const texto = encodeURIComponent(`Oi PZ! Aqui é ${nome}. Tô procurando: ${item}`);
-  window.open(`https://wa.me/${NUMERO_WHATSAPP}?text=${texto}`, '_blank');
-  showToast("Pedido pronto! Confirma o envio no WhatsApp que abriu 🐼");
-  e.target.reset();
-});
-
-/* ---------- Link do grupo ---------- */
-document.getElementById('grupoLink').href = `https://t.me/pzofertas`;
-
-/* ---------- Toast ---------- */
-function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'), 3200);
-}
-
-/* ---------- Menu mobile ---------- */
-const panel = document.getElementById('mobilePanel');
-const menuToggle = document.getElementById('menuToggle');
-document.getElementById('menuClose').addEventListener('click', ()=>panel.classList.remove('open'));
-menuToggle.addEventListener('click', ()=>{
-  panel.classList.add('open');
-  menuToggle.setAttribute('aria-expanded','true');
-});
-panel.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>panel.classList.remove('open')));
-
-/* ---------- PWA: service worker + botão de instalar ---------- */
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', ()=>{
-    navigator.serviceWorker.register('/sw.js')
-      .catch(err => console.log('Service worker não registrado:', err));
-  });
-}
-
-// O Android dispara este evento quando o site pode ser instalado.
-// Guardamos ele e mostramos nosso próprio botão.
-let promptInstalacao = null;
-const btnInstalar = document.getElementById('btnInstalar');
-
-window.addEventListener('beforeinstallprompt', (e)=>{
-  e.preventDefault();
-  promptInstalacao = e;
-  if (btnInstalar) btnInstalar.style.display = 'inline-flex';
-});
-
-if (btnInstalar) {
-  btnInstalar.addEventListener('click', async ()=>{
-    if (!promptInstalacao) return;
-    promptInstalacao.prompt();
-    const { outcome } = await promptInstalacao.userChoice;
-    promptInstalacao = null;
-    btnInstalar.style.display = 'none';
-    if (outcome === 'accepted') showToast('App instalado! Procura o ícone da PZ na sua tela 🐼');
-  });
-}
-
-// Se já estiver rodando como app instalado, não faz sentido mostrar o botão
-window.addEventListener('appinstalled', ()=>{
-  if (btnInstalar) btnInstalar.style.display = 'none';
-});
+/* eventos */
+$('#chips').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;st.cat=b.dataset.c;st.n=12;render()};
+$('#fLoja').onchange=e=>{st.loja=e.target.value;st.n=12;render()};
+$('#fPreco').onchange=e=>{st.preco=e.target.value;st.n=12;render()};
+$('#fDesc').onchange=e=>{st.desc=+e.target.value;st.n=12;render()};
+$('#fOrd').onchange=e=>{st.ord=e.target.value;render()};
+$('#more').onclick=()=>{st.n+=12;render()};
+let tm;$('#q').oninput=e=>{clearTimeout(tm);tm=setTimeout(()=>{st.q=e.target.value.trim();st.n=12;render()},180)};
+$('#hs').onsubmit=e=>{e.preventDefault();st.q=$('#q').value.trim();render();$('#achados').scrollIntoView()};
+$('#sbtn').onclick=()=>{scrollTo({top:0});$('#q').focus()};
+$('#cats').innerHTML=CATS.map((c,i)=>`<button class="cat" data-c="${c[0]}"><h3>${c[1]}</h3></button>`).join('');
+$('#cats').onclick=e=>{const b=e.target.closest('.cat');if(!b)return;st.cat=b.dataset.c;st.n=12;render();$('#achados').scrollIntoView()};
+document.addEventListener('click',e=>{if(e.target.closest('[data-ask]'))$('#pq').value=st.q});
+/* salvos (localStorage, só neste aparelho) */
+const LK='pz_listas';let L=[];try{L=JSON.parse(localStorage.getItem(LK))||[]}catch(e){}
+const persist=()=>{try{localStorage.setItem(LK,JSON.stringify(L))}catch(e){}};
+const isSaved=id=>L.some(l=>l.ids.map(String).includes(String(id)));
+const find=id=>ALL.find(p=>String(p.id)===String(id));
+let pend=null;
+function openMd(id){pend=id;$('#mdi').value='';drawMd();$('#md').hidden=false;$('#mdi').focus()}
+function closeMd(){$('#md').hidden=true;pend=null}
+function drawMd(){$('#mdl').innerHTML=L.map((l,i)=>`<button class="li" data-i="${i}"><span>${esc(l.nome)}</span><small>${l.ids.length}${l.ids.map(String).includes(String(pend))?' ✓':''}</small></button>`).join('')}
+function add(i,id){const l=L[i];if(!l.ids.map(String).includes(String(id)))l.ids.push(id);persist();drawLists();render()}
+function drawLists(){const el=$('#lists');
+ if(!L.length){el.innerHTML='<p class="micro">Nenhuma lista ainda.</p>';return}
+ el.innerHTML=L.map((l,i)=>`<div class="ls"><div class="lh"><h3>${esc(l.nome)} <small>${l.ids.length}</small></h3><button class="chip" data-del="${i}">Excluir</button></div>
+ <div class="lg">${l.ids.map(id=>{const p=find(id);return p?`<div class="lr"><a href="${esc(p.url)}" target="_blank" rel="noopener sponsored nofollow">${p.img?`<img src="${esc(p.img)}" alt="" loading="lazy">`:''}<span>${esc(p.name)}<b>${brl(p.price)}</b></span></a><button data-rm="${i}:${esc(id)}" aria-label="Remover">✕</button></div>`:`<div class="lr"><span>Produto indisponível</span><button data-rm="${i}:${esc(id)}" aria-label="Remover">✕</button></div>`}).join('')||'<p class="micro">Lista vazia.</p>'}</div></div>`).join('')}
+$('#grid').addEventListener('click',e=>{const b=e.target.closest('.sv');if(b)openMd(b.dataset.id)});
+$('#mdl').onclick=e=>{const b=e.target.closest('.li');if(b){add(+b.dataset.i,pend);closeMd()}};
+$('#mdc').onclick=()=>{const n=$('#mdi').value.trim();if(!n)return $('#mdi').focus();L.push({nome:n,ids:pend==null?[]:[pend]});persist();drawLists();render();closeMd()};
+$('#mdi').onkeydown=e=>{if(e.key==='Enter')$('#mdc').click()};
+$('#mdx').onclick=closeMd;$('#md').onclick=e=>{if(e.target.id==='md')closeMd()};
+addEventListener('keydown',e=>{if(e.key==='Escape')closeMd()});
+$('#newList').onclick=()=>openMd(null);
+$('#lists').onclick=e=>{const d=e.target.closest('[data-del]'),r=e.target.closest('[data-rm]');
+ if(d&&confirm('Excluir esta lista?')){L.splice(+d.dataset.del,1);persist();drawLists();render()}
+ if(r){const[i,id]=r.dataset.rm.split(':');L[+i].ids=L[+i].ids.filter(x=>String(x)!==id);persist();drawLists();render()}};
+drawLists();
+/* offline */
+const off=()=>{$('#off').hidden=navigator.onLine};addEventListener('online',off);addEventListener('offline',off);off();
+/* menu */
+const nav=$('#nav'),bg=$('#burger');
+bg.onclick=()=>{const o=nav.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+nav.onclick=e=>{if(e.target.tagName==='A'){nav.classList.remove('open');bg.setAttribute('aria-expanded',false)}};
+const secs=['achados','salvos','categorias','pedir','grupo'].map(id=>$('#'+id));
+const spy=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting)nav.querySelectorAll('a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+en.target.id))}),{rootMargin:'-45% 0px -50% 0px'});secs.forEach(s=>spy.observe(s));
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.08});
+function reveal(){document.querySelectorAll('.rv:not(.in)').forEach((el,i)=>{el.style.transitionDelay=Math.min(i%6,5)*60+'ms';io.observe(el)})}
+/* formulário */
+$('#pf').onsubmit=async e=>{e.preventDefault();const f=e.target,err=$('#err');err.textContent='';
+ if(!f.nome.value.trim()||!f.contato.value.trim()||!f.produto.value.trim()){err.textContent='Preencha nome, contato e o que você procura.';return}
+ const btn=f.querySelector('button');btn.disabled=true;
+ try{const r=await fetch(ORDER_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(f)))});
+  if(!r.ok)throw 0;f.style.display='none';$('#ok').style.display='block'}
+ catch(_){err.textContent='Não foi possível enviar agora.';btn.disabled=false;
+  const w=$('#wa');w.href='https://wa.me/'+WHATS_FALLBACK+'?text='+encodeURIComponent(`Oi PZ! Aqui é ${f.nome.value}. Tô procurando: ${f.produto.value}`);w.style.display=''}};
+/* PWA */
+let dp;addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;$('#install').style.display=''});
+$('#install').onclick=async()=>{if(!dp)return;dp.prompt();await dp.userChoice;dp=null;$('#install').style.display='none'};
+if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+$('#yr').textContent=new Date().getFullYear();
+reveal();load();
 </script>
-
 </body>
 </html>

@@ -11,14 +11,12 @@
    nos celulares que já instalaram o app.
 */
 
-const VERSAO = "pz-ofertas-v3";
+const VERSAO = "pz-ofertas-v2";
 
 const ARQUIVOS_FIXOS = [
   "/",
   "/index.html",
   "/manifest.json",
-  "/game.html",
-  "/404.html",
   "/icon-192.png",
   "/icon-512.png",
   "/icons/icon-maskable-192.png",
