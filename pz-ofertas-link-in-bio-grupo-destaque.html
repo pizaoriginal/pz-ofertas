@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <title>PZ OFERTAS — Links</title>
+  <meta name="description" content="Acesse os canais oficiais da PZ Ofertas.">
+  <style>
+    /* Adicione os arquivos Bebas Neue e Brick em /fonts para carregar as fontes exatas. */
+    @font-face {
+      font-family: "Bebas Neue";
+      src: url("./fonts/BebasNeue-Regular.woff2") format("woff2");
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Brick";
+      src: url("./fonts/Brick.woff2") format("woff2");
+      font-display: swap;
+    }
+    :root {
+      --black: #080808;
+      --white: #f5f5f5;
+      --red: #e5232e;
+      --gray: #8e8e8e;
+      --line: #292929;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; padding: 26px 18px 32px;
+      display: flex; justify-content: center; color: var(--white);
+      background:
+        radial-gradient(ellipse at 50% 5%, rgba(229,35,46,.14), transparent 330px),
+        var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .wrap { width: 100%; max-width: 430px; }
+    .topline {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 13px; border-bottom: 1px solid var(--line);
+      color: #aaa; font-size: 10px; font-weight: 800; letter-spacing: .2em;
+    }
+    .live { display: inline-flex; align-items: center; gap: 7px; }
+    .live:before {
+      content: ""; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--red); box-shadow: 0 0 12px rgba(229,35,46,.8);
+    }
+    header { text-align: center; padding: 35px 0 24px; }
+    .mascot-frame {
+      width: 116px; height: 116px; margin: 0 auto 17px;
+      border: 2px solid var(--red); border-radius: 50%; overflow: hidden;
+      background: #161616; box-shadow: 0 0 0 6px rgba(229,35,46,.08);
+    }
+    .mascot { width: 100%; height: 100%; object-fit: cover; }
+    .wordmark {
+      margin: 0; font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 57px; line-height: .9; letter-spacing: .025em;
+    }
+    .wordmark span { color: var(--red); }
+    .tagline {
+      margin: 13px 0 0; color: #c2c2c2; font-size: 12px;
+      line-height: 1.5; letter-spacing: .035em;
+    }
+    .tagline strong {
+      color: var(--white); font-family: "Brick", "Arial Black", sans-serif;
+      font-size: 13px; letter-spacing: .02em;
+    }
+    .section {
+      display: flex; align-items: center; gap: 10px;
+      margin: 9px 0 12px; color: #999; font-size: 10px;
+      font-weight: 800; letter-spacing: .2em; text-transform: uppercase;
+    }
+    .section:after { content: ""; height: 1px; flex: 1; background: var(--line); }
+    .links { display: grid; gap: 10px; }
+    .link {
+      min-height: 66px; display: flex; align-items: center; gap: 14px;
+      padding: 12px 15px; text-decoration: none; color: var(--white);
+      background: #111; border: 1px solid #303030;
+      transition: transform .16s ease, border-color .16s ease, background .16s ease;
+    }
+    .link:hover { transform: translateY(-2px); border-color: var(--red); background: #171112; }
+    .link.featured {
+      background: var(--red); border-color: var(--red); color: white;
+    }
+    .link.featured:hover { background: #f02c38; }
+    .link.group-highlight {
+      position: relative; isolation: isolate; overflow: hidden;
+      border: 1px solid rgba(229,35,46,.9);
+      background: linear-gradient(110deg, #1b1011 0%, #111 48%, #1b1011 100%);
+      box-shadow: 0 0 0 1px rgba(229,35,46,.12), 0 0 18px rgba(229,35,46,.16);
+      animation: groupGlow 2.8s ease-in-out infinite;
+    }
+    .link.group-highlight::before {
+      content: ""; position: absolute; z-index: -1; top: -45%; left: -65%;
+      width: 42%; height: 190%; transform: rotate(18deg);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.13), transparent);
+      animation: groupShine 3.8s ease-in-out infinite; pointer-events: none;
+    }
+    .link.group-highlight::after {
+      content: "ENTRE GRÁTIS"; position: absolute; top: 6px; right: 8px;
+      padding: 3px 6px; color: #fff; background: var(--red);
+      font-size: 7px; line-height: 1; font-weight: 900; letter-spacing: .12em;
+      animation: badgePulse 1.8s ease-in-out infinite;
+    }
+    .link.group-highlight .icon {
+      color: #fff; background: rgba(229,35,46,.2);
+      border-color: rgba(229,35,46,.38);
+      animation: iconFloat 2.2s ease-in-out infinite;
+    }
+    .link.group-highlight .label b { color: #fff; }
+    .link.group-highlight .label small { color: #f0b8bb; opacity: 1; }
+    .link.group-highlight:hover {
+      transform: translateY(-3px) scale(1.008); border-color: #ff5660;
+      background: linear-gradient(110deg, #281012 0%, #171112 48%, #281012 100%);
+      box-shadow: 0 0 0 1px rgba(229,35,46,.22), 0 0 28px rgba(229,35,46,.3);
+    }
+    @keyframes groupGlow {
+      0%, 100% { box-shadow: 0 0 0 1px rgba(229,35,46,.10), 0 0 12px rgba(229,35,46,.12); }
+      50% { box-shadow: 0 0 0 1px rgba(229,35,46,.28), 0 0 23px rgba(229,35,46,.27); }
+    }
+    @keyframes groupShine {
+      0%, 25% { left: -65%; }
+      65%, 100% { left: 130%; }
+    }
+    @keyframes badgePulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .78; transform: scale(1.05); }
+    }
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    .icon {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      flex: 0 0 42px; background: rgba(255,255,255,.075);
+      border: 1px solid rgba(255,255,255,.08);
+      color: #f5f5f5;
+    }
+    .icon svg { width: 22px; height: 22px; display: block; }
+    .featured .icon {
+      background: rgba(0,0,0,.13);
+      border-color: rgba(255,255,255,.18);
+      color: #fff;
+    }
+    .arrow { width: 20px; height: 20px; display: grid; place-items: center; opacity: .68; }
+    .arrow svg { width: 19px; height: 19px; }
+    .link:hover .arrow { opacity: 1; transform: translateX(2px); }
+    .social span { width: 23px; height: 23px; display: grid; place-items: center; }
+    .social span svg { width: 22px; height: 22px; display: block; }
+    .social:hover span { transform: translateY(-1px); }
+    .label { flex: 1; min-width: 0; }
+    .label b {
+      display: block; font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 23px; font-weight: 400; letter-spacing: .045em; line-height: 1;
+    }
+    .label small { display: block; margin-top: 5px; color: inherit; opacity: .72; font-size: 10px; }
+    .arrow { font-size: 20px; opacity: .75; }
+    .socials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+    .social {
+      display: flex; flex-direction: column; align-items: center; gap: 7px;
+      padding: 15px 6px; text-decoration: none; color: var(--white);
+      background: #111; border: 1px solid #303030; font-size: 10px;
+      font-weight: 800; letter-spacing: .08em; transition: .16s ease;
+    }
+    .social:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+    .social span { font-size: 20px; line-height: 1; }
+    footer {
+      margin-top: 28px; padding-top: 15px; border-top: 1px solid var(--line);
+      text-align: center; color: #686868; font-size: 9px; line-height: 1.7;
+      letter-spacing: .12em;
+    }
+    footer b { color: var(--red); font-family: "Bebas Neue", Impact, sans-serif; font-size: 17px; font-weight: 400; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="topline">
+      <span>PZ / OFERTAS</span>
+      <span class="live">ACHADOS ATUALIZADOS</span>
+    </div>
+
+    <header>
+      <div class="mascot-frame">
+        <!-- Troque o caminho abaixo pelo arquivo real da mascote, se necessário. -->
+        <img class="mascot" src="./mascote-pz.png" alt="Mascote da PZ Ofertas"
+             onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=&quot;display:grid;place-items:center;height:100%;font-size:52px&quot;>🐼</span>';">
+      </div>
+      <h1 class="wordmark">PZ <span>OFERTAS</span></h1>
+      <p class="tagline"><strong>ACHOU. CLICOU. ECONOMIZOU.</strong><br>Os achados que valem o clique.</p>
+    </header>
+
+    <div class="section">Acesse nossos links</div>
+    <nav class="links" aria-label="Links principais">
+      <a class="link featured" href="https://pz-ofertas.pages.dev/">
+        <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="label"><b>VER TODAS AS OFERTAS</b><small>Entre no site oficial da PZ</small></span>
+        <span class="arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="link" href="https://www.instagram.com/pzofertas/" target="_blank" rel="noopener">
+        <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.7" cy="6.6" r="1.15" fill="currentColor"/></svg></span>
+        <span class="label"><b>INSTAGRAM</b><small>Novidades, achados e recomendações</small></span>
+        <span class="arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+      </a>
+      <a class="link group-highlight" href="https://t.me/pzofertas" target="_blank" rel="noopener">
+        <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 4-3.2 16c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1L17.3 7c.4-.4-.1-.6-.6-.3L5.2 13.9.3 12.4c-1.1-.3-1.1-1.1.2-1.6L19.6 3.4C20.5 3.1 21.3 3.6 21 4Z" fill="currentColor" transform="translate(1 0) scale(.94)"/></svg></span>
+        <span class="label"><b>GRUPO DE OFERTAS</b><small>Ofertas em primeira mão • entre grátis</small></span>
+        <span class="arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+      </a>
+      <a class="link" href="https://pz-ofertas.pages.dev/">
+        <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="m16 16 4.3 4.3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
+        <span class="label"><b>ENCONTRE SEU ACHADO</b><small>Explore as seleções da PZ</small></span>
+        <span class="arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+      </a>
+    </nav>
+
+    <div class="section" style="margin-top:25px">Também estamos em</div>
+    <div class="socials">
+      <a class="social" href="https://www.tiktok.com/@pzofertas" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3v11.1a4.1 4.1 0 1 1-3.5-4.05v3.1a1.2 1.2 0 1 0 .5 1V3h3c.2 2.2 1.5 3.7 3.8 4.1v3.1c-1.5-.1-2.8-.7-3.8-1.6" fill="currentColor"/></svg></span>TIKTOK</a>
+      <a class="social" href="https://www.youtube.com/@pzofertas" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 7.2a2.8 2.8 0 0 0-2-2C18.2 4.7 12 4.7 12 4.7s-6.2 0-8 .5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1.5 12 29 29 0 0 0 2 16.8a2.8 2.8 0 0 0 2 2c1.8.5 8 .5 8 .5s6.2 0 8-.5a2.8 2.8 0 0 0 2-2 29 29 0 0 0 .5-4.8 29 29 0 0 0-.5-4.8ZM9.8 15.5v-7l6 3.5-6 3.5Z" fill="currentColor"/></svg></span>YOUTUBE</a>
+      <a class="social" href="https://www.pinterest.com/pzofertas/" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 0 0-3.6 18.9c0-.8 0-1.8.2-2.7l1.3-5.4s-.3-.6-.3-1.5c0-1.4.8-2.5 1.9-2.5.9 0 1.3.7 1.3 1.5 0 .9-.6 2.3-.9 3.6-.3 1.1.5 2 1.6 2 1.9 0 3.3-2 3.3-4.9 0-2.5-1.8-4.2-4.3-4.2-2.9 0-4.6 2.2-4.6 4.5 0 .9.3 1.9.8 2.4.1.1.1.3.1.5l-.3 1.1c0 .2-.2.3-.4.2-1.4-.6-2.2-2.4-2.2-3.9 0-3.2 2.3-6.1 6.7-6.1 3.5 0 6.2 2.5 6.2 5.8 0 3.5-2.2 6.4-5.2 6.4-1 0-2-.6-2.4-1.2l-.7 2.7c-.2 1-.9 2-1.3 2.7A9.8 9.8 0 1 0 12 2.2Z" fill="currentColor"/></svg></span>PINTEREST</a>
+    </div>
+
+    <footer><b>PZ OFERTAS</b><br>MENOS PROCURA. MAIS ACHADOS.<br>© PZ OFERTAS</footer>
+  </main>
+</body>
+</html>
